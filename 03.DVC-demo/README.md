@@ -82,11 +82,14 @@
   dvc repro
   ```
 
+* 此時對 檔案 `artifacts/text.txt` 增減內容後，執行 `dvc repro` 顯示 Stage '...' didn't change
+
 * 刪除檔案 `artifacts/output.txt`，再分別兩次執行，藉此觀察兩次的輸出資訊有何不同
   ```bash
-  dvc repro
+  dvc repro # 執行完後 artifacts/output.txt 會被重新建立
   dvc repro
   ```
+  ![result](../figures/03/dvcrepro.png)
 
 * 執行
   ```bash
