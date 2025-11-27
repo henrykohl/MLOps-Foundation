@@ -40,6 +40,11 @@
   pip install -r requirements.txt
   ```
 
+* (18:26) 如果還未啟動 git，要先執行
+  ```bash
+  git init
+  ```
+
 * 建立 
   <pre>
   pipeline/stage_01.py
