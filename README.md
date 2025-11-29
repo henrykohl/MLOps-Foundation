@@ -1,8 +1,44 @@
 # MLOps-Foundation
 
+* 日期標題後'()' 中為Lecture 實作時的目錄路徑，因此要實作時須先切換到實作目標目錄的路徑，
 
+## Day1 -- Introduction
 
-## Day4 - DVC 
+* (35:18) MLOPs
+  1. Data Management -- DVC
+  2. Version Control -- Github
+  3. Automation (pipeline) -- Salemaker
+  4. Experiment Tracking -- MLflow
+  5. CI/CD -- Genkins, CircleCI, Github Action
+  6. Monitoring -- Grafana
+  7. Retraining -- Airflow
+
+## Day2 (01.Linux cmd)
+
+* (3:29)
+  - Machine Learning -- Scikit learn
+  - Deep Learning -- Tensorflow, Pytorch
+  - Generative AI -- LangChine, LlamaIndex
+
+* (07:49)
+  Dev -> project -> Deploy (AWS,GCP,AZURE,Alibaba)
+
+* (19:10)
+  ```bash
+  sudo apt update
+  sudo apt-get update -y
+  ```
+
+## Day3 (02.Git-Github)
+
+* (11:33)
+  <pre>
+                  git                                               Github
+  Is a version control software                | Is a web application that hosts remote git repo 
+  Is used as a command line tool & run locally | Owned by Microsoft. It's running on remote
+  </pre>
+
+## Day4 (03.DVC-demo)
 
 * ML/DL End-to-end Pipeline
   - Data Ingestion
@@ -91,14 +127,14 @@
   dvc dag
   ```
 
-## Day5 - Cloud Platforms
+## Day5 -- Cloud Platforms
 
 * GCP
   ![GCP](figures/05/GCPdashboard.png)
 
 * GCP Buckets ~ AWS S3 Bucket
 
-## Day6 - MLFlow
+## Day6 (04.MLflow)
 
 * Hyperparameter Tuning
   <pre>
@@ -116,6 +152,8 @@
 
 * `pip install -r requirements.txt`
 
+* [MLflow Python API](https://mlflow.org/docs/latest/api_reference/python_api/index.html#python-api)
+
 * [Red Wine Quality -- Kaggle](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)
 
 * 建立 `demp.py`
@@ -128,3 +166,5 @@
 * 執行 `python demo.py 0.3 0.6`
   
 * 執行 `python demo.py 0.3 0.7`
+
+## Day7 

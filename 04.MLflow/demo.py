@@ -11,11 +11,13 @@ from urllib.parse import urlparse
 import mlflow
 from mlflow.models.signature import infer_signature
 import mlflow.sklearn
-import dagshub
+import dagshub ## the experiment we're going to save in a remote server
 import logging
-import dagshub
 
-dagshub.init(repo_owner='bappymalik4161', repo_name='mlflow-test', mlflow=True)
+
+# dagshub.init(repo_owner='bappymalik4161', repo_name='mlflow-test', mlflow=True) ## Lecture demo
+dagshub.init(repo_owner='henrykohl', repo_name='MLOps-Foundation', mlflow=True) ## 自己的
+
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
@@ -80,7 +82,8 @@ if __name__ == "__main__":
 
         
         # For remote server only (Dagshub)
-        remote_server_uri = "https://dagshub.com/bappymalik4161/mlflow-test.mlflow"
+        # remote_server_uri = "https://dagshub.com/bappymalik4161/mlflow-test.mlflow" ## Lecture demo
+        remote_server_uri = "https://dagshub.com/henrykohl/MLOps-Foundation.mlflow" ## 自己的
         mlflow.set_tracking_uri(remote_server_uri)
 
 
