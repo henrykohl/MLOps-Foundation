@@ -168,3 +168,22 @@
 * 執行 `python demo.py 0.3 0.7`
 
 ## Day7 
+
+* (21:03) [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+* (26:29) [Docker Hub Explore](https://hub.docker.com/explore)
+
+* 執行 
+  ```bash
+  docker pull hello-world
+  docker images
+  docker run hello-world
+
+  docker ps -a # 複製CONTAINER ID
+  docker rm <上面的CONTAINER ID>
+  docker ps -a
+  docker rmi hello-world
+  docker images
+  ```
+
+## 
