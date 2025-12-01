@@ -4,6 +4,8 @@
 
 ## Day1 -- Introduction
 
+* [Lecture Video](https://www.youtube.com/watch?v=eRyQDkCrZrk)
+
 * (35:18) MLOPs
   1. Data Management -- DVC
   2. Version Control -- Github
@@ -14,6 +16,8 @@
   7. Retraining -- Airflow
 
 ## Day2 (01.Linux cmd)
+
+* [Lecture Video](https://www.youtube.com/watch?v=dfnVzbW423E)
 
 * (3:29)
   - Machine Learning -- Scikit learn
@@ -31,6 +35,8 @@
 
 ## Day3 (02.Git-Github)
 
+* [Lecture Video](https://www.youtube.com/watch?v=ipVlWGPOijI)
+
 * (11:33)
   <pre>
                   git                                               Github
@@ -39,6 +45,8 @@
   </pre>
 
 ## Day4 (03.DVC-demo)
+
+* [Lecture Video](https://www.youtube.com/watch?v=pI6r5N7q828)
 
 * ML/DL End-to-end Pipeline
   - Data Ingestion
@@ -129,12 +137,16 @@
 
 ## Day5 -- Cloud Platforms
 
+* [Lecture Video](https://www.youtube.com/watch?v=v8RtyRIQoNU)
+
 * GCP
   ![GCP](figures/05/GCPdashboard.png)
 
 * GCP Buckets ~ AWS S3 Bucket
 
 ## Day6 (04.MLflow)
+
+* [Lecture Video](https://www.youtube.com/watch?v=Y_BlkXUfkzY)
 
 * Hyperparameter Tuning
   <pre>
@@ -167,7 +179,16 @@
   
 * 執行 `python demo.py 0.3 0.7`
 
+* 在 [dagshub/MLOps-Foundation](dagshub.com/henrykohl/MLOps-Foundation.mlflow/#/experiments) 運行結果列表中(可由上圖中點選 'Go to mlflow UI'進入) ，勾選欲檢視的 experiments 後，執行 'Compare'
+  ![experiments](figures/06/mlflowexperiments1.png)
+
+  > 指定欲比較的 Metrics，即會顯示 experiments 相關結果
+
+  ![experiments](figures/06/mlflowexperiments2.png)
+
 ## Day7 
+
+* [Lecture Video](https://www.youtube.com/watch?v=4HXhYvqOj2Y)
 
 * (21:03) [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 
@@ -178,7 +199,14 @@
   docker pull hello-world
   docker images
   docker run hello-world
+  ```
 
+* Lecture Demo：在 Docker Desktop on Windows 中檢視結果
+  ![Dockerer_desktop](figures/07/Dockerdesktop.png)
+
+
+* 執行
+  ```bash
   docker ps -a # 複製CONTAINER ID
   docker rm <上面的CONTAINER ID>
   docker ps -a
@@ -186,4 +214,8 @@
   docker images
   ```
 
-## 
+## Containerization - Creating, Tagging, and Managing Custom Docker Images 
+
+* [Lecture Video](https://www.youtube.com/watch?v=5LktCrQIcys)
+
+* 建立 `Docker-demo` 目錄
