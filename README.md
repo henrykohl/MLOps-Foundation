@@ -218,4 +218,47 @@
 
 * [Lecture Video](https://www.youtube.com/watch?v=5LktCrQIcys)
 
+* [Github resource](https://github.com/entbappy/Ultimate-MLOps-Full-Course)
+
 * 建立 `Docker-demo` 目錄
+
+* 建立 `Docker-demo/README.md`
+  ```markdown
+  # how to run
+  conda create -n test python=3.11 -y
+  conda activate test
+  pip install -r requirements.txt
+  ```
+
+* 建立 `Docker-demo/requirements.txt`
+  ```txt
+  Flask==1.1.2
+  Ifaddr=0.1.7
+  Itsdangerous==1.1.0
+  Jinja2==2.11.2
+  MarkupSafe==1.1.1
+  Werkzeug==1.0.1
+  Zeroconf==0.28.0
+  gunicorn==20.1.0
+  ```
+
+* 執行
+  ```bash
+  conda create -n test python=3.11 -y
+  conda activate test
+  pip install -r requirements.txt
+  ```
+
+* 建立 `Docker-demo/calculator.py`
+
+* 執行 `python calculator.py` (輸入 44 與 45)
+
+
+* 建立資料夾 `Docker-demo/static` 與 `Docker-demo/templates`
+
+* 建立檔案 \
+  `Docker-demo/static/main.css` \
+  `Docker-demo/static/style.css` \
+  `Docker-demo/templates/index.html` \
+  `Docker-demo/templates/results.html`
+  

@@ -1,5 +1,5 @@
 Flask==1.1.2
-Ifaddr=0.1.7
+Ifaddr==0.1.7
 Itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
