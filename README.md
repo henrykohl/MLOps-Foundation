@@ -303,4 +303,20 @@
 * 建立 `EtoEMLPipeline/template.py` 
 
 * 執行 `python template.py`
+
+- 完成 `EtoEMLPipeline/requirements.txt`
+
+* 執行 `pip install -r requirements.txt`
+
+- 完成 `EtoEMLPipeline/setup.py`
+
+- 完成 `EtoEMLPipeline/src/mlProject/__init__.py`
+
+* 編撰 `EtoEMLPipeline/main.py` 且 執行 `python main.py` 後，會建立 `logs/running_logs.log`
+  ```python
+  from mlProject import logger
+
+  logger.info("welcome to mlProject") 
+  ```
+
   
