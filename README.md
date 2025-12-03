@@ -218,42 +218,12 @@
 
 * [Lecture Video](https://www.youtube.com/watch?v=5LktCrQIcys)
 
-* [Github resource](https://github.com/entbappy/Ultimate-MLOps-Full-Course)
+### Docker-Demo
+> * [Github resource](https://github.com/entbappy/Ultimate-MLOps-Full-Course)
 
 * 建立 `Docker-demo` 目錄
 
 * 建立 `Docker-demo/README.md`
-  ```markdown
-  # how to run
-  conda create -n test python=3.11 -y
-  conda activate test
-  pip install -r requirements.txt
-
-  ## Docker Test
-  docker pull hello-world
-
-  docker run hello-world
-  ``bash
-  docker ps                                   # See a list of all running containers
-  docker ps -a                                # See a list of all containers, even the ones not running
-  docker rm <hash>                            # Remove the specified container from this machine
-  docker rm $(docker ps -a -q)                # Remove all containers from this machine
-  docker images -a                            # Show all images on this machine
-  docker rmi <imagename>                      # Remove the specified image from this machine
-  docker rmi $(docker images -q)              # Remove all images from this machine
-  ```
-
-  ## Docker Custom image
-  docker build -t entbappy/mycalapp:latest .
-
-  docker run -p 8080:8080 entbappy/mycalapp:latest
-
-  docker run -d -p 8080:8080 entbappy/mycalapp:latest
-
-  ## Push to Docker Hub:
-  1. docker login
-  2. docker push entbappy/mycalapp:latest
-  ```
 
 * 建立 `Docker-demo/requirements.txt`
   ```txt
@@ -288,4 +258,49 @@
   `Docker-demo/templates/results.html`
 
 * 執行 `python app.py`  
+
+* 執行 `docker build -t henrykohl/flaskcalapp:latest .` (entbappy 改成 henrykohl)
+
+  - Docker Desktop on Windows 的 images 顯示
+  <img src="figures/docker-demo/DDimages.png" width=80%>
+
+
+* 執行 `docker run -p 8080:8080 henrykohl/flaskcalapp:latest` (entbappy 改成 henrykohl)
+
+  - Docker Desktop on Windows 的 containers 顯示
+  <img src="figures/docker-demo/DDcontainers.png" width=80%>
+
+* 執行 `docker ps` 可檢視 container 已經運行。按下 Ctrl + C 終止運行 container 
+
+* 再次執行 `docker ps` 可檢視無 container 在運行
+
+* 執行 `docker run -d -p 8080:8080 henrykohl/flaskcalapp:latest` (entbappy 改成 henrykohl)
+  > '-d' 表示在後台運行
+
+* 刪除 container:
+  - 可以在 Docker Desktop 中直接刪除
+  - 也可以用指令 `docker rm <hash>` ，'<hash>' 是欲刪除的 CONTAINER ID
+
+* 執行 `docker login`
+
+* 執行 `docker push henrykohl/flaskcalapp:latest`，成功後可以在 Docker Hub 中 repositories 裡找到
+
+* 執行 
+  ```bash
+  docker pull henrykohl/flaskcalapp:latest
+  docker run -d -p 8080:8080 henrykohl/flaskcalapp:latest # 開啟 browser (port 為 8080)
+  ```
+
+* 注意，實作此章節內容時，需先切換目錄到 Docker-demo，此章節所有 commands 是當 Docker-demo 為根目錄。此外，原Lecture demo 中的 css 路徑有誤，目錄 'static' 下沒有 'css' 子目錄，因此相關css 檔案路徑已被修改。
+
+
+  
+### End-to-End-Machine-Learning-Pipeline
+> * [Github resource](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline/)
+
+* 執行 `conda create -n mlproj python=3.8 -y`
+
+* 建立 `EtoEMLPipeline/template.py` 
+
+* 執行 `python template.py`
   
