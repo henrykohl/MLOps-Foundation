@@ -302,21 +302,28 @@
 
 * 建立 `EtoEMLPipeline/template.py` 
 
-* 執行 `python template.py`
+* 執行 `python template.py`，後自動建立 19 個檔案。
 
 - 完成 `EtoEMLPipeline/requirements.txt`
 
-* 執行 `pip install -r requirements.txt`
+- 完成 `EtoEMLPipeline/setup.py` (注意，此完成後才可執行下一步安裝步驟，因為 'requirements.txt' 包含了 '-e .')
 
-- 完成 `EtoEMLPipeline/setup.py`
+* 執行 `pip install -r requirements.txt` 
+  > 完成後為自動建立目錄 `src/mlProject.egg-info`
 
 - 完成 `EtoEMLPipeline/src/mlProject/__init__.py`
 
-* 編撰 `EtoEMLPipeline/main.py` 且 執行 `python main.py` 後，會建立 `logs/running_logs.log`
+* 編撰(暫時地) `EtoEMLPipeline/main.py` 且 執行 `python main.py` 後，除了在 terminal 顯示訊息，還會建立 `logs/running_logs.log`
   ```python
   from mlProject import logger
 
   logger.info("welcome to mlProject") 
   ```
+
+- 完成 `EtoEMLPipeline/src/mlProject/utils/common.py`
+
+* 建立且完成 `EtoEMLPipeline/research/test.yaml`
+
+* 完成 `EtoEMLPipeline/research/trials.ipynb`
 
   
