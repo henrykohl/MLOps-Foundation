@@ -259,7 +259,7 @@
 
 * 執行 `python app.py`  
 
-* 建立
+* 建立 `Docker-demo/Dockerfile`
 
 * 執行 `docker build -t henrykohl/flaskcalapp:latest .` (entbappy 改成 henrykohl)
 
