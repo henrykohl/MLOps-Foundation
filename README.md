@@ -154,6 +154,8 @@
   P2 = {optimizer: SGD, Adam, RMSprop}
   </pre>
 
+* 自行執行 `conda create -n chest python=3.11 -y`  (Lecture demo 沒有執行，因已預先建立)
+
 * `conda activate chest`
 
 * 建立 `requirements.txt`
@@ -279,6 +281,10 @@
 * 執行 `docker run -d -p 8080:8080 henrykohl/flaskcalapp:latest` (entbappy 改成 henrykohl)
   > '-d' 表示在後台運行
 
+* 終止 container 運行:
+  - Lecture demo 用 Docker Desktop 去 stop 執行中的 container
+  - 自行實作時則執行 `docker stop <hash>` ，'<hash>' 是欲刪除終止的 CONTAINER ID
+
 * 刪除 container:
   - 可以在 Docker Desktop 中直接刪除
   - 也可以用指令 `docker rm <hash>` ，'<hash>' 是欲刪除的 CONTAINER ID
@@ -286,6 +292,9 @@
 * 執行 `docker login`
 
 * 執行 `docker push henrykohl/flaskcalapp:latest`，成功後可以在 Docker Hub 中 repositories 裡找到
+
+* 為了實測當沒有 henrykohl/flaskcalapp:latest 此 image 時執行 docker pull
+  - 執行 `docker rmi <hash>` ，'<hash>' 是欲刪除的 IMAGE ID
 
 * 執行 
   ```bash
