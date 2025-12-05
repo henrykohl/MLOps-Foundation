@@ -219,7 +219,7 @@
 * [Lecture Video](https://www.youtube.com/watch?v=5LktCrQIcys)
 
 ### Docker-Demo
-> * [Github resource](https://github.com/entbappy/Ultimate-MLOps-Full-Course)
+> * [Github resource -- Ultimate-MLOps-Full-Course](https://github.com/entbappy/Ultimate-MLOps-Full-Course)
 
 * 建立 `Docker-demo` 目錄
 
@@ -259,6 +259,8 @@
 
 * 執行 `python app.py`  
 
+* 建立
+
 * 執行 `docker build -t henrykohl/flaskcalapp:latest .` (entbappy 改成 henrykohl)
 
   - Docker Desktop on Windows 的 images 顯示
@@ -291,9 +293,13 @@
   docker run -d -p 8080:8080 henrykohl/flaskcalapp:latest # 開啟 browser (port 為 8080)
   ```
 
-* 注意，實作此章節內容時，需先切換目錄到 Docker-demo，此章節所有 commands 是當 Docker-demo 為根目錄。此外，原Lecture demo 中的 css 路徑有誤，目錄 'static' 下沒有 'css' 子目錄，因此相關css 檔案路徑已被修改。
-
-
+* 注意，實作此章節內容時，需先切換目錄到 Docker-demo，此章節所有 commands 是當 Docker-demo 為根目錄。此外，原Lecture demo 中的 css 路徑有誤，而原目錄 'static' 下沒有 'css' 子目錄，因此自行在 'static' 下再建一子目錄 '/css' 後把 'main.css' 與 'style.css' 檔案移到此子目錄下，另外檔案中 `Docker-demo/templates/results.html` 
+  <pre>
+  將原本
+  href="./style.css"
+  改成
+  href="./css/style.css" 
+  </pre>
   
 ### End-to-End-Machine-Learning-Pipeline
 > * [Github resource](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline/)
