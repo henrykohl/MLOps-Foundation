@@ -342,3 +342,55 @@
 * 完成 `EtoEMLPipeline/research/trials.ipynb`
 
   
+## Advance ML Pipeline 
+
+* 下載訓練資料後，存成 `EtoEMLPipeline/data/winequality-red.csv`
+  > [Kaggle: Red Wine Quality](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)
+
+* 建立完成 `EtoEMLPipeline/research/Experiment.ipynb`
+
+* ML Pipeline
+  1. Data Ingestion --> DB, Github
+  2. Data Validation
+  3. Data Transformation --> Feature Engineering, EDA
+  4. Model Trainer --> Model.pkl, Joblib
+  5. Model Evaluation --> RMSE, R2, MAE
+  6. Model Pusher --> S3
+
+* 建立完成 `EtoEMLPipeline/research/01_data_ingestion.ipynb`
+
+* 完成 `EtoEMLPipeline/config/config.yaml`
+  > - 完成 'data_ingestion' 部分
+  > - 取代 [原 source URL](https://github.com/entbappy/Branching-tutorial/raw/master/winequality-data.zip)
+  > - 換成 [新 source URL](https://github.com/henrykohl/MLOps-Foundation/raw/main/EtoEMLPipeline/winequality-data.zip) -- 自行把 data 存留一份 
+
+* 完成 `EtoEMLPipeline/schema.yaml`
+
+* 完成 `EtoEMLPipeline/params.yaml`
+
+* 完成 `EtoEMLPipeline/src/mlProject/constants/__init__.py`
+
+* (55:14) 完成 `EtoEMLPipeline/src/mlProject/entity/config_entity.py` (data_ingestion 那部分)
+
+* (55:38) 完成 `EtoEMLPipeline/src/mlProject/config/configuration.py` (data_ingestion 那部分)
+
+### 6. update the components
+
+* (56:30) 建立完成 `EtoEMLPipeline/src/mlProject/components/data_ingestion.py`
+
+### 7. updated the pipeline
+
+* (57:50) 建立完成 `EtoEMLPipeline/src/mlProject/pipeline/stage_01_data_ingestion.py`
+
+### 8. Update the main.py
+
+* (1:00:00) 完成 `EtoEMLPipeline/main.py` (data_ingestion 那部分)
+
+* 執行 `python main.py` (執行前將 `/artifacts` 資料夾刪除)
+
+* 在 `EtoEMLPipeline/.gitignore` 中加入 (此檔案要新建，而根目錄有另一個 '.gitignore' )
+  ```.gitignore
+  artifacts/*
+  ```
+
+* (1:02:25) git commit ('data ingestion added')
