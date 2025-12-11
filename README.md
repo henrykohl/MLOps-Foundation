@@ -311,13 +311,15 @@
   </pre>
   
 ### End-to-End-Machine-Learning-Pipeline
-> * [Github resource](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline/)
+> * (1:00:50) [Github resource](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline/)
 
-* 執行 `conda create -n mlproj python=3.8 -y`
+* 執行 `conda create -n mlproj python=3.8 -y` 和 `conda activate mlproj`
 
-* 建立 `EtoEMLPipeline/template.py` 
+* (1:17:50) 建立 `EtoEMLPipeline/template.py` 
 
-* 執行 `python template.py`，後自動建立 19 個檔案。
+* (1:28:30) 執行 `python template.py`，後自動建立 19 個檔案。
+
+* (1:30:50) Git commit ("folder structure added")
 
 - 完成 `EtoEMLPipeline/requirements.txt`
 
@@ -326,14 +328,18 @@
 * 執行 `pip install -r requirements.txt` 
   > 完成後為自動建立目錄 `src/mlProject.egg-info`
 
-- 完成 `EtoEMLPipeline/src/mlProject/__init__.py`
+* (1:35:40) Git commit ('requirements added')
 
-* 編撰(暫時地) `EtoEMLPipeline/main.py` 且 執行 `python main.py` 後，除了在 terminal 顯示訊息，還會建立 `logs/running_logs.log`
+- (1:39:30) 完成 `EtoEMLPipeline/src/mlProject/__init__.py`
+
+* (1:40:10) 編撰(暫時地) `EtoEMLPipeline/main.py`
   ```python
   from mlProject import logger
 
   logger.info("welcome to mlProject") 
   ```
+
+* (1:41:25) 執行 `python main.py` 後，除了在 terminal 顯示訊息，還會建立 `logs/running_logs.log`
 
 - 完成 `EtoEMLPipeline/src/mlProject/utils/common.py`
 
