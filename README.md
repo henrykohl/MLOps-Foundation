@@ -344,10 +344,14 @@
   
 ## Advance ML Pipeline 
 
-* 下載訓練資料後，存成 `EtoEMLPipeline/data/winequality-red.csv`
+* 此講的實做都在目錄 **`/EtoEMLPipeline`** 之下，以下此講筆記的路徑均以為此根目錄
+
+* 下載訓練資料後，存成 `data/winequality-red.csv`
   > [Kaggle: Red Wine Quality](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)
 
-* 建立完成 `EtoEMLPipeline/research/Experiment.ipynb`
+---
+
+* 建立完成 `research/Experiment.ipynb`
 
 * ML Pipeline
   1. Data Ingestion --> DB, Github
@@ -357,40 +361,95 @@
   5. Model Evaluation --> RMSE, R2, MAE
   6. Model Pusher --> S3
 
-* 建立完成 `EtoEMLPipeline/research/01_data_ingestion.ipynb`
+---
 
-* 完成 `EtoEMLPipeline/config/config.yaml`
-  > - 完成 'data_ingestion' 部分
+* 建立完成 `research/01_data_ingestion.ipynb`
+
+#### 1. Update config.yaml
+
+* 完成 `config/config.yaml` ('data_ingestion' 那部分)
   > - 取代 [原 source URL](https://github.com/entbappy/Branching-tutorial/raw/master/winequality-data.zip)
   > - 換成 [新 source URL](https://github.com/henrykohl/MLOps-Foundation/raw/main/EtoEMLPipeline/winequality-data.zip) -- 自行把 data 存留一份 
 
-* 完成 `EtoEMLPipeline/schema.yaml`
+#### 2. Update schema.yaml
 
-* 完成 `EtoEMLPipeline/params.yaml`
+* 完成 `schema.yaml`
 
-* 完成 `EtoEMLPipeline/src/mlProject/constants/__init__.py`
+#### 3. Update params.yaml
 
-* (55:14) 完成 `EtoEMLPipeline/src/mlProject/entity/config_entity.py` (data_ingestion 那部分)
+* 完成 `params.yaml`
 
-* (55:38) 完成 `EtoEMLPipeline/src/mlProject/config/configuration.py` (data_ingestion 那部分)
+* 完成 `src/mlProject/constants/__init__.py`
 
-### 6. update the components
+* (53:19) 執行 `research/01_data_ingestion.ipynb` 完後，會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案
 
-* (56:30) 建立完成 `EtoEMLPipeline/src/mlProject/components/data_ingestion.py`
+#### 4. Update the entity
 
-### 7. updated the pipeline
+* (55:14) 完成 `src/mlProject/entity/config_entity.py` (data_ingestion 那部分)
 
-* (57:50) 建立完成 `EtoEMLPipeline/src/mlProject/pipeline/stage_01_data_ingestion.py`
+#### 5. Update the configuration manager in src config
 
-### 8. Update the main.py
+* (55:38) 完成 `src/mlProject/config/configuration.py` (data_ingestion 那部分)
 
-* (1:00:00) 完成 `EtoEMLPipeline/main.py` (data_ingestion 那部分)
+#### 6. update the components
 
-* 執行 `python main.py` (執行前將 `/artifacts` 資料夾刪除)
+* (56:30) 建立完成 `src/mlProject/components/data_ingestion.py`
 
-* 在 `EtoEMLPipeline/.gitignore` 中加入 (此檔案要新建，而根目錄有另一個 '.gitignore' )
+#### 7. updated the pipeline
+
+* (57:50) 建立完成 `src/mlProject/pipeline/stage_01_data_ingestion.py`
+
+#### 8. Update the main.py
+
+* (1:00:00) 完成 `main.py` (data_ingestion 那部分)
+
+* 執行 `python main.py` (執行前將 `artifacts` 資料夾刪除)完後，
+  > 會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案
+
+* 在 `.gitignore` 中加入 (此檔案要新建，而 repository 根目錄有另一個 '.gitignore' )
   ```.gitignore
   artifacts/*
   ```
 
 * (1:02:25) git commit ('data ingestion added')
+
+---
+(1:03:32)
+
+* 建立完成 `research/02_data_validation.ipynb`
+
+#### 1. Update config.yaml
+
+* 完成 `config/config.yaml` ('data_validation' 那部分)
+
+* (1:09:39) 執行 `research/02_data_validation.ipynb` 完後，會建立 `artifacts/data_validation` 資料夾內包含 'status.txt'
+  > 若 `artifacts/data/winequality-red.csv` 中的資料有 column 缺失，'status.txt' 中會記錄 'False' 
+
+####  4. Update the entity
+
+* (1:11:33) 完成 `src/mlProject/entity/config_entity.py` (data_validation 那部分)
+
+#### 5. Update the configuration manager in src config
+
+* (1:12:22) 完成 `src/mlProject/config/configuration.py` (data_validation 那部分)
+
+#### 6. update the components
+
+* (1:12:59) 建立完成 `src/mlProject/components/data_validation.py`
+
+#### 7. updated the pipeline
+
+* (1:14:05) 建立完成 `src/mlProject/pipeline/stage_02_data_validation.py`
+
+#### 8. Update the main.py
+
+* (1:14:30) 完成 `main.py` (data_validation 那部分)
+
+* 執行 `python main.py` (執行前將 `artifacts` 資料夾刪除)完後，
+  > 會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案 \
+  > 會建立 `artifacts/data_validation` 資料夾內包含 'status.txt'
+
+---
+(1:18:35)
+
+* 建立完成 `research/03_data_transformation.ipynb`
