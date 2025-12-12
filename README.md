@@ -369,6 +369,8 @@
 
 ---
 
+### Data Ingestion
+
 * 建立完成 `research/01_data_ingestion.ipynb`
 
 #### 1. Update config.yaml
@@ -420,13 +422,23 @@
 * (1:02:25) git commit ('data ingestion added')
 
 ---
-(1:03:32)
 
-* 建立完成 `research/02_data_validation.ipynb`
+
+### Data Validation
+
+* (1:03:32) 建立完成 `research/02_data_validation.ipynb`
 
 #### 1. Update config.yaml
 
 * 完成 `config/config.yaml` ('data_validation' 那部分)
+
+#### 2. Update schema.yaml
+
+* 不變
+
+#### 3. Update params.yaml
+
+* 不變
 
 * (1:09:39) 執行 `research/02_data_validation.ipynb` 完後，會建立 `artifacts/data_validation` 資料夾內包含 'status.txt'
   > 若 `artifacts/data/winequality-red.csv` 中的資料有 column 缺失，'status.txt' 中會記錄 'False' 
@@ -458,4 +470,160 @@
 ---
 (1:18:35)
 
+### Data Transformation
+
 * 建立完成 `research/03_data_transformation.ipynb`
+
+#### 1. Update config.yaml
+
+* 完成 `config/config.yaml` ('data_transformation' 那部分)
+
+#### 2. Update schema.yaml
+
+* 不變
+
+#### 3. Update params.yaml
+
+* 不變
+
+* (1:21:45) 執行 `research/03_data_transformation.ipynb` 完後，會建立 `artifacts/data_transformation` 資料夾內包含 'train.csv' 與 'test.csv'
+
+####  4. Update the entity
+
+* (1:22:18) 完成 `src/mlProject/entity/config_entity.py` (data_transformation 那部分)
+
+#### 5. Update the configuration manager in src config
+
+* (1:22:33) 完成 `src/mlProject/config/configuration.py` (data_transformation 那部分)
+
+#### 6. update the components
+
+* (1:23:07) 建立完成 `src/mlProject/components/data_transformation.py`
+
+#### 7. updated the pipeline
+
+* (1:23:58) 建立完成 `src/mlProject/pipeline/stage_03_data_transformation.py`
+
+#### 8. Update the main.py
+
+* (1:25:30) 完成 `main.py` (data_transformation 那部分)
+
+* 執行 `python main.py` (執行前將 `artifacts` 資料夾刪除)完後，
+  > 會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案 \
+  > 會建立 `artifacts/data_validation` 資料夾內包含 'status.txt' \
+  > 會建立 `artifacts/data_transformation` 資料夾內包含 'train.csv' 與 'test.csv' 
+
+---
+
+### Model Trainer
+
+* 建立完成 `research/04_model_trainer.ipynb` 
+
+#### 1. Update config.yaml
+
+* 完成 `config/config.yaml` ('data_transformation' 那部分)
+
+#### 2. Update schema.yaml
+
+* 不變
+
+#### 3. Update params.yaml
+
+* 不變
+
+* (1:44:45) 執行 `research/04_model_trainer.ipynb` 完後，會建立 `artifacts/model_trainer` 資料夾內包含 'model.joblib'
+
+####  4. Update the entity
+
+* (1:35:00) 完成 `src/mlProject/entity/config_entity.py` (model_trainer 那部分)
+
+#### 5. Update the configuration manager in src config
+
+* (1:35:15) 完成 `src/mlProject/config/configuration.py` (model_trainer 那部分)
+
+#### 6. update the components
+
+* (1:35:45) 建立完成 `src/mlProject/components/model_trainer.py`
+
+#### 7. updated the pipeline
+
+* (1:36:25) 建立完成 `src/mlProject/pipeline/stage_04_model_trainer.py`
+
+#### 8. Update the main.py
+
+* (1:37:10) 完成 `main.py` (model_trainer 那部分)
+
+* 執行 `python main.py` (執行前將 `artifacts` 資料夾刪除)完後，
+  > 會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案 \
+  > 會建立 `artifacts/data_validation` 資料夾內包含 'status.txt' \
+  > 會建立 `artifacts/data_transformation` 資料夾內包含 'train.csv' 與 'test.csv' \
+  > 會建立 `artifacts/model_trainer` 資料夾內包含 'model.joblib'
+
+---
+
+### Model Evaluation
+
+* (1:37:50) 建立完成 `research/05_model_evaluation.ipynb` 
+
+#### 1. Update config.yaml
+
+* 完成 `config/config.yaml` ('model_evaluation' 那部分)
+
+#### 2. Update schema.yaml
+
+* 不變
+
+#### 3. Update params.yaml
+
+* 不變
+
+* (1:39:25) 執行 `research/05_model_evaluation.ipynb` 完後，會建立 `artifacts/model_evaluation` 資料夾內包含 'metrics.json'
+
+####  4. Update the entity
+
+* (1:39:38) 完成 `src/mlProject/entity/config_entity.py` (model_evaluation 那部分)
+
+#### 5. Update the configuration manager in src config
+
+* (1:40:00) 完成 `src/mlProject/config/configuration.py` (model_evaluation 那部分)
+
+#### 6. update the components
+
+* (1:40:30) 建立完成 `src/mlProject/components/model_evaluation.py`
+
+#### 7. updated the pipeline
+
+* (1:41:36) 建立完成 `src/mlProject/pipeline/stage_05_model_evaluation.py`
+
+#### 8. Update the main.py
+
+* (1:41:55) 完成 `main.py` (model_evaluation 那部分)
+
+* 執行 `python main.py` (執行前將 `artifacts` 資料夾刪除)完後，
+  > 會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案 \
+  > 會建立 `artifacts/data_validation` 資料夾內包含 'status.txt' \
+  > 會建立 `artifacts/data_transformation` 資料夾內包含 'train.csv' 與 'test.csv' \
+  > 會建立 `artifacts/model_trainer` 資料夾內包含 'model.joblib' \
+  > 會建立 `artifacts/model_evaluation` 資料夾內包含 'metrics.json' 
+
+### Prediction
+
+* (1:44:45) 建立完成 `src/mlProject/pipeline/prediction.py`
+
+### User Interface
+
+* (1:45:02) 完成 `app.py`
+
+* 完成 `templates/index.html` （Lecture demo 略過內容細節）
+
+* 建立完成 `templates/results.html` （Lecture demo 略過內容細節）
+
+* 建立 `static` 資料夾，放置相關 'css' 檔案與圖片 （Lecture demo 略過內容細節）
+
+* 開啟 browser 輸入網址 `localhost:8080` (測試頁面畫面)
+
+* 開啟 browser 輸入網址 `localhost:8080/train` 
+
+* 開啟 browser 輸入網址 `localhost:8080` 輸入相關參數按下 'predict' (測試功能)
+
+* (1:52:10) Git commit ('completed till app')

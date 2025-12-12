@@ -42,7 +42,7 @@ def create_directories(path_to_directories: list, verbose=True):
     """create list of directories
 
     Args:
-        path_to_directories (list): list of path of directories
+        path_to_directories (list): list of path of directories (path 可以是 str 類或是 PosixPath 類)
         ignore_log (bool, optional): ignore if multiple dirs is to be created. Defaults to False.
     """
     for path in path_to_directories:
