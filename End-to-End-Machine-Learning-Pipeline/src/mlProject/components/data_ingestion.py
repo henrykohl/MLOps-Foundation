@@ -3,8 +3,8 @@ import urllib.request as request
 import zipfile
 from mlProject import logger
 from mlProject.utils.common import get_size
-from mlProject.entity.config_entity import DataIngestionConfig
-from pathlib import Path
+from mlProject.entity.config_entity import DataIngestionConfig  ## python 版本需要
+from pathlib import Path                                        ## python 版本需要
 
 
 
