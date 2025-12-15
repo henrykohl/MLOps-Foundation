@@ -4,19 +4,19 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
-    root_dir: Path
+    root_dir: Path           ## 實例化時，儲存的類型是 str
     source_URL: str
-    local_data_file: Path
-    unzip_dir: Path
+    local_data_file: Path    ## 實例化時，儲存的類型是 str
+    unzip_dir: Path          ## 實例化時，儲存的類型是 str
 
 
 
 @dataclass(frozen=True)
 class DataValidationConfig:
-    root_dir: Path
+    root_dir: Path           ## 實例化時，儲存的類型是 str
     STATUS_FILE: str
-    unzip_data_dir: Path
-    all_schema: dict
+    unzip_data_dir: Path     ## 實例化時，儲存的類型是 str; 其實是 unzip data file 檔案路徑(非目錄路徑)
+    all_schema: dict         ## 實例化時，儲存的類型是 ConfigBox
 
 
 

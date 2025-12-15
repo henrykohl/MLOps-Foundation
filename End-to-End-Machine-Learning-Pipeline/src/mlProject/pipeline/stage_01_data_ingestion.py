@@ -1,5 +1,5 @@
-from mlProject.config.configuration import ConfigurationManager ## python 版本 需要
-from mlProject.components.data_ingestion import DataIngestion   ## python 版本 需要
+from mlProject.config.configuration import ConfigurationManager ## '5. configuration'
+from mlProject.components.data_ingestion import DataIngestion   ## '6. components'
 from mlProject import logger                                    ## (或許不需要)
 
 
@@ -10,7 +10,7 @@ class DataIngestionTrainingPipeline:
     def __init__(self):
         pass
 
-    def main(self):                                           ## 省略 try...exception block
+    def main(self):                                             ## 省略 try...exception block
         config = ConfigurationManager()                              ## 例化configuration，建立主目錄
         data_ingestion_config = config.get_data_ingestion_config()   ## 執行configuration，建立次目錄，例化entity
         data_ingestion = DataIngestion(config=data_ingestion_config) ## 例化 component
