@@ -21,8 +21,10 @@ class DataTransformation:
 
         # Split the data into training and test sets. (0.75, 0.25) split.
         train, test = train_test_split(data)
-
+        
+        ## 'train' 存檔路徑 artifacts/data_transformation/train.csv
         train.to_csv(os.path.join(self.config.root_dir, "train.csv"),index = False)
+        ## 'test' 存檔路徑 artifacts/data_transformation/test.csv
         test.to_csv(os.path.join(self.config.root_dir, "test.csv"),index = False)
 
         logger.info("Splited data into training and test sets")
