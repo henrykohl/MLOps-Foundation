@@ -40,9 +40,9 @@ class ModelTrainerConfig:
 
 @dataclass(frozen=True)
 class ModelEvaluationConfig:
-    root_dir: Path
-    test_data_path: Path
-    model_path: Path
-    all_params: dict
-    metric_file_name: Path
-    target_column: str
+    root_dir: Path           ## 定義在 config.yaml 之 model_evaluation; 實際類型 str
+    test_data_path: Path     ## 定義在 config.yaml 之 model_evaluation; 實際類型 str
+    model_path: Path         ## 定義在 config.yaml 之 model_evaluation; 實際類型 str
+    all_params: dict         ## 定義在 params.yaml 之 ElasticNet; 實際類型 ConfigBox 
+    metric_file_name: Path   ## 定義在 config.yaml 之 model_evaluation; 實際類型 str
+    target_column: str       ## 定義在 schema.yaml 之 TARGET_COLUMN; 

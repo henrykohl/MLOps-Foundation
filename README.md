@@ -373,17 +373,17 @@
 
 * 建立完成 `research/01_data_ingestion.ipynb`
 
-#### 1. Update config.yaml
+#### 1. Update `config.yaml`
 
 * 完成 `config/config.yaml` ('data_ingestion' 那部分)
   > - 取代 [原 source URL](https://github.com/entbappy/Branching-tutorial/raw/master/winequality-data.zip)
   > - 換成 [新 source URL](https://github.com/henrykohl/MLOps-Foundation/raw/main/EtoEMLPipeline/winequality-data.zip) -- 自行把 data 存留一份 
 
-#### 2. Update schema.yaml
+#### 2. Update `schema.yaml`
 
 * 完成 `schema.yaml`
 
-#### 3. Update params.yaml
+#### 3. Update `params.yaml`
 
 * 完成 `params.yaml`
 
@@ -407,7 +407,7 @@
 
 * (57:50) 建立完成 `src/mlProject/pipeline/stage_01_data_ingestion.py`
 
-#### 8. Update the main.py
+#### 8. Update the `main.py`
 
 * (1:00:00) 完成 `main.py` (data_ingestion 那部分)
 
@@ -428,15 +428,15 @@
 
 * (1:03:32) 建立完成 `research/02_data_validation.ipynb`
 
-#### 1. Update config.yaml
+#### 1. Update `config.yaml
 
 * 完成 `config/config.yaml` ('data_validation' 那部分)
 
-#### 2. Update schema.yaml
+#### 2. Update `schema.yaml`
 
 * 不變
 
-#### 3. Update params.yaml
+#### 3. Update `params.yaml`
 
 * 不變
 
@@ -459,7 +459,7 @@
 
 * (1:14:05) 建立完成 `src/mlProject/pipeline/stage_02_data_validation.py`
 
-#### 8. Update the main.py
+#### 8. Update the `main.py`
 
 * (1:14:30) 完成 `main.py` (data_validation 那部分)
 
@@ -474,15 +474,15 @@
 
 * 建立完成 `research/03_data_transformation.ipynb`
 
-#### 1. Update config.yaml
+#### 1. Update `config.yaml`
 
 * 完成 `config/config.yaml` ('data_transformation' 那部分)
 
-#### 2. Update schema.yaml
+#### 2. Update `schema.yaml`
 
 * 不變
 
-#### 3. Update params.yaml
+#### 3. Update `params.yaml`
 
 * 不變
 
@@ -504,7 +504,7 @@
 
 * (1:23:58) 建立完成 `src/mlProject/pipeline/stage_03_data_transformation.py`
 
-#### 8. Update the main.py
+#### 8. Update the `main.py`
 
 * (1:25:30) 完成 `main.py` (data_transformation 那部分)
 
@@ -519,15 +519,15 @@
 
 * 建立完成 `research/04_model_trainer.ipynb` 
 
-#### 1. Update config.yaml
+#### 1. Update `config.yaml`
 
 * 完成 `config/config.yaml` ('data_transformation' 那部分)
 
-#### 2. Update schema.yaml
+#### 2. Update `schema.yaml`
 
 * 不變
 
-#### 3. Update params.yaml
+#### 3. Update `params.yaml`
 
 * 不變
 
@@ -549,7 +549,7 @@
 
 * (1:36:25) 建立完成 `src/mlProject/pipeline/stage_04_model_trainer.py`
 
-#### 8. Update the main.py
+#### 8. Update the `main.py`
 
 * (1:37:10) 完成 `main.py` (model_trainer 那部分)
 
@@ -595,7 +595,7 @@
 
 * (1:41:36) 建立完成 `src/mlProject/pipeline/stage_05_model_evaluation.py`
 
-#### 8. Update the main.py
+#### 8. Update the `main.py`
 
 * (1:41:55) 完成 `main.py` (model_evaluation 那部分)
 

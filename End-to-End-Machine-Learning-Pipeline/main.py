@@ -22,7 +22,7 @@ except Exception as e:
 STAGE_NAME = "Data Validation stage"
 try:
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
-   data_ingestion = DataValidationTrainingPipeline()
+   data_ingestion = DataValidationTrainingPipeline()       ## 改成 data_validation 比較合適
    data_ingestion.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:
@@ -34,7 +34,7 @@ except Exception as e:
 STAGE_NAME = "Data Transformation stage"
 try:
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
-   data_ingestion = DataTransformationTrainingPipeline()
+   data_ingestion = DataTransformationTrainingPipeline()   ## 改成 data_datatransformation 比較合適
    data_ingestion.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:
@@ -45,7 +45,7 @@ except Exception as e:
 STAGE_NAME = "Model Trainer stage"
 try:
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
-   data_ingestion = ModelTrainerTrainingPipeline()
+   data_ingestion = ModelTrainerTrainingPipeline()         ## 改成 model_trainer 比較合適
    data_ingestion.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:
@@ -57,7 +57,7 @@ except Exception as e:
 STAGE_NAME = "Model evaluation stage"
 try:
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
-   data_ingestion = ModelEvaluationTrainingPipeline()
+   data_ingestion = ModelEvaluationTrainingPipeline()      ## 改成 model_evaluation 比較合適
    data_ingestion.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:

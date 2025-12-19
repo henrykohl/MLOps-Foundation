@@ -14,7 +14,7 @@ class ModelEvaluation:
         self.config = config
 
     
-    def eval_metrics(self,actual, pred):
+    def eval_metrics(self,actual, pred):                 # actual 類型: Series, pred 類型: Series
         rmse = np.sqrt(mean_squared_error(actual, pred))
         mae = mean_absolute_error(actual, pred)
         r2 = r2_score(actual, pred)
@@ -23,17 +23,17 @@ class ModelEvaluation:
 
 
     def save_results(self):
-
-        test_data = pd.read_csv(self.config.test_data_path)
-        model = joblib.load(self.config.model_path)
-
-        test_x = test_data.drop([self.config.target_column], axis=1)
-        test_y = test_data[[self.config.target_column]]
         
-        predicted_qualities = model.predict(test_x)
+        test_data = pd.read_csv(self.config.test_data_path) ## 從 artifacts/data_transformation/test.csv
+        model = joblib.load(self.config.model_path)         ## 從 artifacts/model_trainer/model.joblib
 
-        (rmse, mae, r2) = self.eval_metrics(test_y, predicted_qualities)
-        
+        test_x = test_data.drop([self.config.target_column], axis=1)   ## test_data 捨棄 quality 欄 
+        test_y = test_data[[self.config.target_column]]                ## test_data 取得 quality 欄 
+
+        predicted_qualities = model.predict(test_x)                      ## 輸出 Series
+
+        (rmse, mae, r2) = self.eval_metrics(test_y, predicted_qualities) ## 輸入 (Series, Series)
+
         # Saving metrics as local
-        scores = {"rmse": rmse, "mae": mae, "r2": r2}
-        save_json(path=Path(self.config.metric_file_name), data=scores)
+        scores = {"rmse": rmse, "mae": mae, "r2": r2}                    ## 輸入 (float, float, float)
+        save_json(path=Path(self.config.metric_file_name), data=scores)  ## 到 artifacts/model_evaluation/metrics.json
