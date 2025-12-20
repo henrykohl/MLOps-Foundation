@@ -313,26 +313,28 @@
 ### End-to-End-Machine-Learning-Pipeline
 > * (1:00:50) [Github resource](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline/)
 
+* 此講的實做都在目錄 **`/End-to-End-Machine-Learning-Pipeline`** 之下，以下此講筆記的路徑均以為此根目錄
+
 * 執行 `conda create -n mlproj python=3.8 -y` 和 `conda activate mlproj`
 
-* (1:17:50) 建立 `EtoEMLPipeline/template.py` 
+* (1:17:50) 建立 `template.py` 
 
 * (1:28:30) 執行 `python template.py`，後自動建立 19 個檔案。
 
 * (1:30:50) Git commit ("folder structure added")
 
-- 完成 `EtoEMLPipeline/requirements.txt`
+- 完成 `requirements.txt`
 
-- 完成 `EtoEMLPipeline/setup.py` (注意，此完成後才可執行下一步安裝步驟，因為 'requirements.txt' 包含了 '-e .')
+- 完成 `setup.py` (注意，此完成後才可執行下一步安裝步驟，因為 'requirements.txt' 包含了 '-e .')
 
 * 執行 `pip install -r requirements.txt` 
   > 完成後為自動建立目錄 `src/mlProject.egg-info`
 
 * (1:35:40) Git commit ('requirements added')
 
-- (1:39:30) 完成 `EtoEMLPipeline/src/mlProject/__init__.py`
+- (1:39:30) 完成 `src/mlProject/__init__.py`
 
-* (1:40:10) 編撰(暫時地) `EtoEMLPipeline/main.py`
+* (1:40:10) 編撰(暫時地) `main.py`
   ```python
   from mlProject import logger
 
@@ -341,16 +343,18 @@
 
 * (1:41:25) 執行 `python main.py` 後，除了在 terminal 顯示訊息，還會建立 `logs/running_logs.log`
 
-- 完成 `EtoEMLPipeline/src/mlProject/utils/common.py`
+- 完成 `src/mlProject/utils/common.py`
 
-* 建立且完成 `EtoEMLPipeline/research/test.yaml`
+* 建立且完成 `research/test.yaml`
 
-* 完成 `EtoEMLPipeline/research/trials.ipynb`
+* 完成 `research/trials.ipynb`
 
   
 ## Advance ML Pipeline 
 
-* 此講的實做都在目錄 **`/EtoEMLPipeline`** 之下，以下此講筆記的路徑均以為此根目錄
+* [Lecture Video](https://www.youtube.com/watch?v=TZrJNkZCxaU)
+
+* 此講的實做都在目錄 **`/End-to-End-Machine-Learning-Pipeline`** 之下，以下此講筆記的路徑均以為此根目錄
 
 * 下載訓練資料後，存成 `data/winequality-red.csv`
   > [Kaggle: Red Wine Quality](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)
@@ -620,10 +624,14 @@
 
 * 建立 `static` 資料夾，放置相關 'css' 檔案與圖片 （Lecture demo 略過內容細節）
 
+* (1:47:34) 執行 `python app.py`
+
 * 開啟 browser 輸入網址 `localhost:8080` (測試頁面畫面)
 
 * 開啟 browser 輸入網址 `localhost:8080/train` 
 
 * 開啟 browser 輸入網址 `localhost:8080` 輸入相關參數按下 'predict' (測試功能)
+
+  <img src="figures/adv-ml/prediction.png" width=50%>
 
 * (1:52:10) Git commit ('completed till app')

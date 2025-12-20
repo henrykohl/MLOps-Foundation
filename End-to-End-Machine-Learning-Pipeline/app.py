@@ -41,7 +41,7 @@ def index():
             data = np.array(data).reshape(1, 11)
             
             obj = PredictionPipeline()
-            predict = obj.predict(data)
+            predict = obj.predict(data) ## 輸出類型 numpy.ndarray，shpae 為 (1,)
 
             return render_template('results.html', prediction = str(predict))
 
