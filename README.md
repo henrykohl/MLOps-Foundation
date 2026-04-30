@@ -1,6 +1,9 @@
 # MLOps-Foundation
 
-* 日期標題後'()' 中為Lecture 實作時的目錄路徑，因此要實作時須先切換到實作目標目錄的路徑，
+* 日期標題後'()' 中為Lecture 實作時的目錄路徑，因此要實作時須先切換到實作目標目錄的路徑。
+
+* Youtube playist：https://www.youtube.com/watch?v=eRyQDkCrZrk&list=PLkz_y24mlSJbtHxCveCT9NkgYdEhc42il
+
 
 ## Day1 -- Introduction
 
@@ -218,10 +221,10 @@
 
 ## Containerization - Creating, Tagging, and Managing Custom Docker Images 
 
-* [Lecture Video](https://www.youtube.com/watch?v=5LktCrQIcys)
+* [Lecture Day8 Video](https://www.youtube.com/watch?v=5LktCrQIcys)
 
 ### Docker-Demo
-> * [Github resource -- Ultimate-MLOps-Full-Course](https://github.com/entbappy/Ultimate-MLOps-Full-Course)
+> * [Github resource -- Ultimate-MLOps-Full-Course](https://github.com/entbappy/Ultimate-MLOps-Full-Course) -- "Docker/Basic Calculator App"
 
 * 建立 `Docker-demo` 目錄
 
@@ -349,7 +352,8 @@
 
 * 完成 `research/trials.ipynb`
 
-  
+* **下一講章節，繼續未完成部分！**
+
 ## Advance ML Pipeline 
 
 * [Lecture Video](https://www.youtube.com/watch?v=TZrJNkZCxaU)
@@ -635,3 +639,53 @@
   <img src="figures/adv-ml/prediction.png" width=50%>
 
 * (1:52:10) Git commit ('completed till app')
+
+## End-to-End Machine Learning Project Using AWS SageMaker
+
+* [Lecture 10 Video](https://www.youtube.com/watch?v=7dksopxbcqM)
+
+* (1:28) Login AWS，設定 AWS
+
+  <img src="figures/sagemaker/aws/aws_searchsegamakerai.png" width=50%><br>
+  - 點選 Amazon Segamaker AI
+
+  <img src="figures/sagemaker/aws/aws_segamakerboard.png" width=100%><br>
+  - 在 Domains 中點選 Create domain
+
+  <img src="figures/sagemaker/aws/aws_domainsetup.png" width=100%><br>
+  - 建立 domain，按下 set up (若尚未建立 domain)
+  - 回到上個畫面，點選已建立的 domain
+
+  <img src="figures/sagemaker/aws/aws_domainuserprofile.png" width=100%><br>
+  - 切換到 user profile 頁面
+  - 如果尚未建立(或要建立多個) profile，點選 Add user
+  - 在 Launch 選單，點選 Studio
+
+  <img src="figures/sagemaker/aws/aws_segamakerstudio.png" width=100%><br>
+  - 點選 JupyterLab
+
+  <img src="figures/sagemaker/aws/aws_jupyterlab.png" width=100%><br>
+  - 點選 Create JupyterLab space
+
+  <img src="figures/sagemaker/aws/aws_createdomainspace.png" width=42%><br>
+  - Name：demo
+  - 按下 Create space
+
+  <img src="figures/sagemaker/aws/aws_runspace.png" width=100%><br>
+  - 點選 Run space
+
+  <img src="figures/sagemaker/aws/aws_openjupyterlab.png" width=100%><br>
+  - 點選 OpenJupyterLab -- launch the jupyter lab
+
+  <img src="figures/sagemaker/aws/aws_launcherpython3.png" width=95%><br>
+  - 點選 Python 3
+
+  <img src="figures/sagemaker/aws/aws_mlprojectipynb.png" width=90%><br>
+  - JupyterNotebook 頁面，將 ipynb 檔案改名為 'ml project'
+  - 將 'student_scores.csv' (見下一說明) 上傳 
+
+
+* (5:54) kaggle -- [Kamlesh/student_scores](https://www.kaggle.com/datasets/kamleshsam/student-scores)
+  - 下載檔案 'student_scores.csv' （置放於`10.Segamaker`） 
+
+* 完成 `10.Segamaker/ml project.ipynb` (實際執行必須在 AWS Sagemaker 環境下)
