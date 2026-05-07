@@ -7,7 +7,7 @@
 
 ## Day1 -- Introduction
 
-* [Lecture Video](https://www.youtube.com/watch?v=eRyQDkCrZrk)
+* [Lecture 1 Video](https://www.youtube.com/watch?v=eRyQDkCrZrk)
 
 * (35:18) MLOPs
   1. Data Management -- DVC
@@ -20,7 +20,7 @@
 
 ## Day2 (01.Linux cmd)
 
-* [Lecture Video](https://www.youtube.com/watch?v=dfnVzbW423E)
+* [Lecture 2 Video](https://www.youtube.com/watch?v=dfnVzbW423E)
 
 * (3:29)
   - Machine Learning -- Scikit learn
@@ -38,7 +38,7 @@
 
 ## Day3 (02.Git-Github)
 
-* [Lecture Video](https://www.youtube.com/watch?v=ipVlWGPOijI)
+* [Lecture 3 Video](https://www.youtube.com/watch?v=ipVlWGPOijI)
 
 * (11:33)
   <pre>
@@ -49,7 +49,7 @@
 
 ## Day4 (03.DVC-demo)
 
-* [Lecture Video](https://www.youtube.com/watch?v=pI6r5N7q828)
+* [Lecture 4 Video](https://www.youtube.com/watch?v=pI6r5N7q828)
 
 * ML/DL End-to-end Pipeline
   - Data Ingestion
@@ -140,7 +140,7 @@
 
 ## Day5 -- Cloud Platforms
 
-* [Lecture Video](https://www.youtube.com/watch?v=v8RtyRIQoNU)
+* [Lecture 5 Video](https://www.youtube.com/watch?v=v8RtyRIQoNU)
 
 * GCP
   ![GCP](figures/05/GCPdashboard.png)
@@ -149,7 +149,7 @@
 
 ## Day6 (04.MLflow)
 
-* [Lecture Video](https://www.youtube.com/watch?v=Y_BlkXUfkzY)
+* [Lecture 6 Video](https://www.youtube.com/watch?v=Y_BlkXUfkzY)
 
 * Hyperparameter Tuning
   <pre>
@@ -193,7 +193,7 @@
 
 ## Day7 
 
-* [Lecture Video](https://www.youtube.com/watch?v=4HXhYvqOj2Y)
+* [Lecture 7 Video](https://www.youtube.com/watch?v=4HXhYvqOj2Y)
 
 * (21:03) [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 
@@ -221,7 +221,7 @@
 
 ## Containerization - Creating, Tagging, and Managing Custom Docker Images 
 
-* [Lecture Day8 Video](https://www.youtube.com/watch?v=5LktCrQIcys)
+* [Lecture 8 Video](https://www.youtube.com/watch?v=5LktCrQIcys)
 
 ### Docker-Demo
 > * [Github resource -- Ultimate-MLOps-Full-Course](https://github.com/entbappy/Ultimate-MLOps-Full-Course) -- "Docker/Basic Calculator App"
@@ -356,7 +356,7 @@
 
 ## Advance ML Pipeline 
 
-* [Lecture Video](https://www.youtube.com/watch?v=TZrJNkZCxaU)
+* [Lecture 9 Video](https://www.youtube.com/watch?v=TZrJNkZCxaU)
 
 * 此講的實做都在目錄 **`/End-to-End-Machine-Learning-Pipeline`** 之下，以下此講筆記的路徑均以為此根目錄
 
@@ -689,3 +689,183 @@
   - 下載檔案 'student_scores.csv' （置放於`10.Segamaker`） 
 
 * 完成 `10.Segamaker/ml project.ipynb` (實際執行必須在 AWS Sagemaker 環境下)
+
+## Deploy Your Machine Learning Pipeline Using Docker & Kubernetes
+
+* [Lecture 11 Video](https://www.youtube.com/watch?v=67BT4lRyeXI)
+
+* 登入 Google Could Platform
+
+* (3:51) [Github -- pycaret-deployment-google](https://github.com/pycaret/pycaret-deployment-google)
+
+* (6:30) GCP 搜尋 'Container Registry'
+
+  <img src="figures/kubernetes/gcp/gcp_search.png" width=100%><br>
+  - 搜尋頁面
+
+  <img src="figures/kubernetes/gcp/gcp_containerregistry.png" width=100%><br>
+  - Repositories 頁面
+
+* (7:14) GCP 搜尋 'Kubernetes Engine'
+
+  <img src="figures/kubernetes/gcp/gcp_searchkubernetes.png" width=100%><br>
+  - 搜尋頁面
+
+  <img src="figures/kubernetes/gcp/gcp_kubernetesview.png" width=100%><br>
+  - Kubernetes 的 Clusters 頁面
+
+* (7:50) GCP 首頁
+
+  <img src="figures/kubernetes/gcp/gcp_activatecloudshell.png" width=100%><br>
+  - 點選 Activate Cloud Shell
+
+* 之後接續要在 shell 上執行的命令 (9:40)
+
+  <img src="figures/kubernetes/batchcommands.png" width=70%>
+
+
+* (9:10) GCP shell
+
+  <img src="figures/kubernetes/gcp/gcp_shellgitclone.png" width=100%><br>
+  - 執行 `git clone https://github.com/pycaret/pycaret-deployment-google.git`
+
+  <img src="figures/kubernetes/gcp/gcp_shellcommands1.png" width=100%><br>
+  - 執行 `ls`
+  - 執行 `cd pycaret-deployment-google`
+  - 執行 `ls`
+  - 執行 `EXPORT PROJECT_ID=focal-baton-276315`
+  - 執行 `cat Dockerfile`
+
+* (10:09 補充) 找到 PROJECT_ID
+
+  <img src="figures/kubernetes/gcp/gcp_projectidstep1.png" width=100%><br>
+  - step 1: 點選 My First Project
+
+  <img src="figures/kubernetes/gcp/gcp_projectidstep2.png" width=100%><br>
+  - step 2: 在專案名稱找出對應的 ID
+
+
+* (12:21) GCP shell
+
+  <img src="figures/kubernetes/gcp/gcp_dockerbuild.png" width=100%><br>
+  - 執行 `docker build -t gcr.io/${PROJECT_ID}/insurance-app:v1 .`
+  - (13:14) Lecture demo 出現錯誤，原因是 python 過舊，解決方式見後～
+
+  <img src="figures/kubernetes/gcp/gcp_shellcommands2.png" width=100%><br>
+  - 刪除原本 Dockerfile，再建立新的 Dockerfile
+
+
+
+  
+* (14:33) 建立新的 `Dockerfile`
+  ```dockerfile
+  FROM python:3.9
+
+  RUN pip install virtualenv
+  ENV VIRTUAL_ENV=/venv
+  RUN virtualenv $VIRTUAL_ENV -p python3
+  ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+  WORKDIR /app
+  ADD . /app
+
+  # Install dependencies
+  RUN pip install -r requirements.txt
+
+  # Expose port
+  ENV PORT=8080
+
+  # Run the application
+  CMD ["gunicorn","app:app","--config=config.py"]
+  ```
+* 再次執行 `docker build -t gcr.io/${PROJECT_ID}/insurance-app:v1 .`，但還會存在一個錯誤。
+  - 原因是 requirements.txt 中 pycaret 的版本已不被支援
+
+
+* (16:50) 修改 requirements.txt，針對 pycaret
+
+  ```txt
+  pycaret # pycaret==1.0.0
+  Flask==1.1.1
+  Jinja2==2.10.1
+  gunicorn==19.9.0
+  certifi==2019.11.28
+  itsdangerous==1.1.0
+  ```
+
+* (16:55 - 18:40) GCP shell
+  
+  <img src="figures/kubernetes/gcp/gcp_dockerimages.png" width=100%><br>
+  - 再次執行 `docker build -t gcr.io/${PROJECT_ID}/insurance-app:v1 .`
+  - 然後執行 `docker images`
+
+  <img src="figures/kubernetes/gcp/gcp_gcloudauth.png" width=100%><br>
+  - 執行 `gloud auth configure-docker gcr.io`
+
+  <img src="figures/kubernetes/gcp/gcp_dockerpush.png" width=100%><br>
+  - 執行 `docker push gcr.io/${PROJECT_ID}/insurance-app:v1`
+
+* (21:17) GCP 頁面
+
+  <img src="figures/kubernetes/gcp/gcp_containerregistry1.png" width=100%><br>
+  - 在 Repositories 頁面，點選 docker image
+
+  <img src="figures/kubernetes/gcp/gcp_repositoryimage.png" width=100%><br>
+  - 檢視 image 頁面
+
+  <img src="figures/kubernetes/gcp/gcp_gcloudconfigset.png" width=100%><br>
+  - 執行 `gloud config set compute/zone us-central1`
+
+* (21:58) 建立 container cluster (Lecture Demo略過，改示範用手動建立)
+  - 執行 `gloud container clusters create insurance-cluster --num-nodes=1`
+
+* (22:13) 建立 container cluster -- Kubernetes cluster (手動)
+
+  <img src="figures/kubernetes/gcp/gcp_kubernetesclusters.png" width=100%><br>
+  - 在 Kubernetes Engine 的 Clusters 頁面，點選 Create
+
+  <img src="figures/kubernetes/gcp/gcp_clustercreate.png" width=100%><br>
+  - Name：insurance-cluster
+  - Region：us-central1
+
+  <img src="figures/kubernetes/gcp/gcp_clustercreaterc.png" width=100%><br>
+  - 在 Review and create 分頁時，點選 create 
+
+  <img src="figures/kubernetes/gcp/gcp_clusterbeingcreated.png" width=100%><br>
+  - insurance-cluster 的 status 顯示仍在建立中 (**This cluster is being created**)
+
+  <img src="figures/kubernetes/gcp/gcp_clustercreated.png" width=100%><br>
+  - cluster is getting created
+
+* 部署應用程式在 Kubernetes clusters
+
+  <img src="figures/kubernetes/gcp/gcp_clusterdeployment.png" width=100%><br>
+  - 執行 `kubectl create deployment insurance-app --image=gcr.io/${PROJECT_ID}/insurance-app:v1`
+
+
+* Expose the application
+  
+  - 執行 `kubectl expose deployment insurance-app --type=LoaderBalancer --port 80 --target-port 8080` (Demo沒顯示)
+  
+  <img src="figures/kubernetes/gcp/gcp_afterexposedeployment.png" width=100%><br>
+  - after executing the command
+
+  <img src="figures/kubernetes/projectwebsview.png" width=80%><br>
+  - 開啟 browser
+
+* (27:21) Delete the cluster
+
+  <img src="figures/kubernetes/gcp/gcp_clusterselected.png" width=100%><br>
+  - 在 Kubernetes Engine 的 Clusters 頁面，點選欲刪除的 cluster 後，點選 Delete
+
+  <img src="figures/kubernetes/gcp/gcp_clusterdelete.png" width=80%><br>
+  - 輸入 insurance-cluster 後，點選 Delete
+
+  <img src="figures/kubernetes/gcp/gcp_clusterdeleting.png" width=100%><br>
+  - 刪除過程還在進行中的畫面
+  
+  <img src="figures/kubernetes/gcp/gcp_dockerimagedelete.png" width=100%><br>
+  - 在 Repository 頁面中點選欲刪除的 docker image 後，點選 DELETE
+
+  <img src="figures/kubernetes/gcp/gcp_dockerimagedeleted.png" width=80%><br>
+  - 點選 DELETE 確認刪除 docker image
