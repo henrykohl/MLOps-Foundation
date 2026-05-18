@@ -869,3 +869,208 @@
 
   <img src="figures/kubernetes/gcp/gcp_dockerimagedeleted.png" width=80%><br>
   - 點選 DELETE 確認刪除 docker image
+
+## Monitor Everything with Grafana | Grafana Dashboard Step by Step 
+
+* [Lecture 12 Video](www.youtube.com/watch?v=fX8dIy6zGH8)
+
+* (0:27) 
+  - show the demo of graphana how we can create the graphana dashboard. 
+  - show you the entire step-by-step setup and after that we'll be able to use the graphana inside your project. 
+  - Graphana is a open-source visualization actually tool with the help of that you can visualize any kinds of data. 
+  - it can supports all the data sources whether it's a database,whether it's any third party sources anything you can connect here
+  - so to set up the grapher now here I will be using the docker
+  - first of all we'll try to launch EC2 instance and there we'll make the setup 
+  - then with respect to the docker we'll try to set up the graphana there. 
+  - So, first of all, let me open up my AWS account and there I'll try to create a sitto machine. 
+  - Then I'll show you how we can uh set up the graphana. 
+
+* (1:25)
+
+  <img src="figures/grafana/aws/aws_searchec2.png" width=100%><br>
+  - 登入 AWS 後搜尋 ec2
+
+  <img src="figures/grafana/aws/aws_launchinstance.png" width=100%><br>
+  - 點選 Launch instance
+
+  <img src="figures/grafana/aws/aws_ec2nameandtags.png" width=100%><br>
+  - name：grafana-demo
+
+  <img src="figures/grafana/aws/aws_osubuntu.png" width=80%><br>
+  - 點選 Ubuntu
+
+  <img src="figures/grafana/aws/aws_instancetype.png" width=80%><br>
+  - Instance type：t2.medium
+
+  <img src="figures/grafana/aws/aws_keypair.png" width=80%><br>
+  - 如果沒有存在的 key pair 可選，就點選 Create new key pair 
+
+  <img src="figures/grafana/aws/aws_networksettings.png" width=80%><br>
+  - 點選 Allow HTTPS traffic from the internet 與 Allow HTTP traffic from the internet
+  - 點選 Launch instance，去完成建立
+
+  <img src="figures/grafana/aws/aws_ec2instances.png" width=100%><br>
+  - 在 EC2 dashboard 點選 grafana-demo 的 Instance ID
+
+  <img src="figures/grafana/aws/aws_instancesummary.png" width=100%><br>
+  - 點選 connect
+
+* (3:08) 在 ec2 上執行 commands
+
+  <img src="figures/grafana/aws/aws_sudoaptgetupdate.png" width=100%><br>
+  - 執行 `sudo apt-get update -y`
+
+  <img src="figures/grafana/aws/aws_sudoaptgetupgrade.png" width=100%><br>
+  - 執行 `sudo apt-get upgrade`
+
+  <img src="figures/grafana/aws/aws_curlsudogetdocker.png" width=100%><br>
+  - 執行 `curl -fsSL https://get.docker.com -o get-docker.sh`
+  - 執行 `ls` (檢視用)
+  - 執行 `sudo sh get-docker.sh`
+
+  <img src="figures/grafana/aws/aws_sudoagnewgrp.png" width=50%><br>
+  - 執行 `sudo usermod -aG docker ubuntu`
+  - 執行 `newgrp docker`
+
+  <img src="figures/grafana/aws/aws_dockerversion.png" width=50%><br>
+  - 執行 `dpcker --version` (檢測用)
+
+
+* (5:27) [Run Grafana Docker image](https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/)
+
+  <img src="figures/grafana/aws/aws_dockerrungrafana.png" width=50%><br>
+  - 執行 `docker run -d -p 3000:3000 --name=grafana grafana/grafana-oss`
+
+  <img src="figures/grafana/aws/aws_instancesummarysecurity.png" width=100%><br>
+  - 在 instance summary 頁面，點選 Security
+
+  <img src="figures/grafana/aws/aws_securitydetails.png" width=100%><br>
+  - 點選 Security groups 中欲修改的 sg id
+
+  <img src="figures/grafana/aws/aws_securitygroups.png" width=100%><br>
+  - 點選 Edit inbound rules
+
+
+
+  <img src="figures/grafana/aws/aws_customtcprule.png" width=70%><br>
+  - Type：Custom TCP
+  - Port range：3000
+  - Source：Anywhere  (0.0.0.0/0)
+  - 最後點選 Save rules
+
+  <img src="figures/grafana/aws/aws_dockerps.png" width=100%><br>
+  - 執行 `docker ps -a`
+  - 執行 `docker ps`，以確認 grafana-oss docker 是否成功運行。
+ 
+  <img src="figures/grafana/aws/aws_publicipcopy.png" width=100%><br>
+  - 在 instance summary 頁面複製 Public IPv4 address
+
+  <img src="figures/grafana/browserlogin.png" width=70%><br>
+  - 開啟瀏覽器，輸入之前複製的 Public IPv4 address 並指定 port 為 3000
+  - username：admin
+  - password：admin
+
+  <img src="figures/grafana/passwordupdate.png" width=50%><br>
+  - 首次登入，要更新密碼
+
+  <img src="figures/grafana/welcomegrafana.png" width=100%><br>
+  - 登入 Grafana 的歡迎頁面
+
+* (10:22) [Prometheus](https://prometheus.io) -- 提供 docker run 的指令執行說明
+
+* (11:01) [Prometheus - Installation](https://prometheus.io/docs/prometheus/latest/installation/)
+
+  <img src="figures/grafana/aws/aws_prometheus.png" width=50%><br>
+  - 執行 `docker run -p 9090:9090 prom/prometheus`
+
+  <img src="figures/grafana/aws/aws_securitydetailss.png" width=100%><br>
+  - 再次在 instance summary 頁面的 Security 下點選欲修改的 security group id
+
+  <img src="figures/grafana/aws/aws_customtcprule2.png" width=100%><br>
+  - Type：Custom TCP
+  - Port range：9090
+  - Source：Anywhere (0.0.0.0/0)
+  - 最後點選 Save rules
+
+  <img src="figures/grafana/aws/aws_ec2instances2.png" width=0%><br>
+  - ...
+
+  <img src="figures/grafana/openbrowseragain.png" width=100%><br>
+  - 開啟瀏覽器，輸入之前複製的 Public IPv4 address 並指定 port 為 9090
+
+  <img src="figures/grafana/openbrowsergraph.png" width=100%><br>
+  - 網址自動跳轉為附加 /graph
+
+  <img src="figures/grafana/premetheusgraph.png" width=100%><br>
+  - 開啟 premetheus 的畫面
+
+  <img src="figures/grafana/premetheusmetrics.png" width=100%><br>
+  - 瀏覽器，輸入之前複製的 Public IPv4 address 並指定 port 為 9090，並附加 /metrics
+
+  <img src="figures/grafana/premetheusdatasource.png" width=100%><br>
+  - 切換到 Premetheus 頁面的 Connections 下 Data resources，點選 Premetheus
+
+  <img src="figures/grafana/premetheusdatasourcesetting.png" width=100%><br>
+  - 進入 Premetheus 的 setting 頁面
+
+  <img src="figures/grafana/premetheusserverurl.png" width=100%><br>
+  - Prometheus server URL：輸入之前複製的 Public IPv4 address 並指定 port 為 9090
+
+  <img src="figures/grafana/premetheussavetest.png" width=73%><br>
+  - 在頁面底，點選 Save & test
+
+  <img src="figures/grafana/premetheushome.png" width=100%><br>
+  - 在 Grafana 的 Home 頁面，點選 Create your first dashboard
+
+  <img src="figures/grafana/premetheusaddvisualization.png" width=100%><br>
+  - 點選 Add visualization
+
+  <img src="figures/grafana/premetheusselectdatasource.png" width=68%><br>
+  - 在 Select data source 頁中點選 Premetheus
+
+  <img src="figures/grafana/premetheusdashboardsquery.png" width=80%><br>
+  - 在 Dashboards 裡，Metric 中點選 go_gc_duration_seconds_count 後點選 Run queries
+
+  <img src="figures/grafana/premetheusdashboardsqueries1.png" width=80%><br>
+  - 呈現的監測畫面
+
+  <img src="figures/grafana/premetheusbacktodashboard.png" width=100%><br>
+  - 接著點選 Back to dashboard
+
+  <img src="figures/grafana/premetheusdashboardvisualadd.png" width=100%><br>
+  - 按下 Add 點選 Visualization
+
+  <img src="figures/grafana/premetheusdashboardquery1.png" width=100%><br>
+  - 切換畫面後，Metric 中點選 go_gc_heap_allocs_bytes_total 後點選 Run queries
+
+  <img src="figures/grafana/premetheusbacktodashboard1.png" width=100%><br>
+  - 呈現的監測畫面，接著點選 Back to dashboard 
+
+  <img src="figures/grafana/premetheusdashboardrefresh.jpg" width=100%><br>
+  - 呈現新的監測畫面，按下 refresh，即顯示 real time information~
+
+  <img src="figures/grafana/premetheusdashboardrefresh2.png" width=100%><br>
+  - 在監測畫面，可以手動拖曳統計圖位置
+
+  <img src="figures/grafana/premetheusdashboardvisualadd2.png" width=100%><br>
+  - 再次按下 Add 點選 Visualization
+
+  <img src="figures/grafana/premetheusdashboardquery2.png" width=100%><br>
+  - 切換畫面後，Metric 中點選 go_gc_heap_objects_object 後點選 Run queries
+
+  <img src="figures/grafana/premetheusbacktodashboard2.png" width=100%><br>
+  - 再次呈現的監測畫面，再次接著點選 Back to dashboard
+
+  <img src="figures/grafana/premetheusdashboardrefresh3.jpg" width=100%><br>
+  - 呈現新的監測畫面，按下 refresh，即顯示 real time information~
+
+* (17:30) 刪除 AWS EC2 instance
+
+  <img src="figures/grafana/aws/aws_ec2instanceterminate.png" width=100%><br>
+  - 在 EC2 的 instances 頁面，選取欲刪除的 instance 後，點選 instance state 中 Terminate (delete) instance
+
+  <img src="figures/grafana/aws/aws_ec2terminatedelete.png" width=60%><br>
+  - 點選 Terminate (delete) 確認刪除
+
+  <img src="figures/grafana/aws/aws_ec2initiateterminate.png" width=100%><br>
+  - EC2 instance 確認刪除後跳轉的畫面
