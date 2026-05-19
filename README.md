@@ -875,15 +875,15 @@
 * [Lecture 12 Video](www.youtube.com/watch?v=fX8dIy6zGH8)
 
 * (0:27) 
-  - show the demo of graphana how we can create the graphana dashboard. 
-  - show you the entire step-by-step setup and after that we'll be able to use the graphana inside your project. 
-  - Graphana is a open-source visualization actually tool with the help of that you can visualize any kinds of data. 
-  - it can supports all the data sources whether it's a database,whether it's any third party sources anything you can connect here
-  - so to set up the grapher now here I will be using the docker
+  - show the demo of grafana how we can create the grafana dashboard. 
+  - show the entire step-by-step setup and after that we will use the grafana inside your project. 
+  - Grafana is a open-source visualization tool with the help of that you can visualize any kinds of data. 
+  - it can support all the data sources whether it's a database, whether it's any third party sources anything you can connect here
+  - so, to set up the grapher now here we will be using the docker
   - first of all we'll try to launch EC2 instance and there we'll make the setup 
-  - then with respect to the docker we'll try to set up the graphana there. 
-  - So, first of all, let me open up my AWS account and there I'll try to create a sitto machine. 
-  - Then I'll show you how we can uh set up the graphana. 
+  - then with respect to the docker we'll try to set up the grafana there. 
+  - So, let's open up the AWS account and there we'll try to create a sitto machine. 
+  - Then show you how we can set up the grafana. 
 
 * (1:25)
 
@@ -925,6 +925,10 @@
 
   <img src="figures/grafana/aws/aws_curlsudogetdocker.png" width=100%><br>
   - 執行 `curl -fsSL https://get.docker.com -o get-docker.sh`
+    - -f (fail): 如果 HTTP 請求失敗（例如 404 錯誤），則不輸出一任何內容，直接退出。
+    - -s (silent): 靜音模式，不顯示進度條或錯誤訊息。
+    - -S (show-error): 與 -s 搭配使用，如果出錯了，還是會顯示錯誤訊息。
+    - -L (location): 如果伺服器回傳重定向（例如從 HTTP 轉到 HTTPS），curl 會自動跟隨到新網址。
   - 執行 `ls` (檢視用)
   - 執行 `sudo sh get-docker.sh`
 
@@ -940,17 +944,20 @@
 
   <img src="figures/grafana/aws/aws_dockerrungrafana.png" width=50%><br>
   - 執行 `docker run -d -p 3000:3000 --name=grafana grafana/grafana-oss`
+    - docker run：Docker 的核心指令，用於建立並啟動一個新的容器。
+    - -d (Detach)：背景執行模式。容器啟動後會在背景運作，不會佔用你目前的終端機視窗，讓你可繼續輸入其他指令。
+    - -p 3000:3000 (Publish)：連接埠對應。格式為 主機連接埠:容器連接埠。這表示當你訪問主機的 http://localhost:3000 時，請求會被轉發到容器內的 3000 連接埠（Grafana 預設服務埠）。
+    - --name=grafana：為這個容器指定一個自定義的名稱（grafana）。如果不設定，Docker 會隨機產生一個名字，指定名稱方便後續進行停止（stop）或刪除（rm）操作。
+    - grafana/grafana-oss：指定要使用的映像檔（Image）名稱。grafana-oss 是 Grafana 官方提供的開源版本。
 
   <img src="figures/grafana/aws/aws_instancesummarysecurity.png" width=100%><br>
   - 在 instance summary 頁面，點選 Security
 
   <img src="figures/grafana/aws/aws_securitydetails.png" width=100%><br>
-  - 點選 Security groups 中欲修改的 sg id
+  - 點選欲修改的 security groups id
 
   <img src="figures/grafana/aws/aws_securitygroups.png" width=100%><br>
   - 點選 Edit inbound rules
-
-
 
   <img src="figures/grafana/aws/aws_customtcprule.png" width=70%><br>
   - Type：Custom TCP
@@ -960,7 +967,7 @@
 
   <img src="figures/grafana/aws/aws_dockerps.png" width=100%><br>
   - 執行 `docker ps -a`
-  - 執行 `docker ps`，以確認 grafana-oss docker 是否成功運行。
+  - 執行 `docker ps`，用以確認名稱為 grafana-oss 的 docker image 是否成功運行。
  
   <img src="figures/grafana/aws/aws_publicipcopy.png" width=100%><br>
   - 在 instance summary 頁面複製 Public IPv4 address
@@ -992,32 +999,32 @@
   - Source：Anywhere (0.0.0.0/0)
   - 最後點選 Save rules
 
-  <img src="figures/grafana/aws/aws_ec2instances2.png" width=0%><br>
-  - ...
+  <img src="figures/grafana/aws/aws_ec2instances2.png" width=100%><br>
+  - EC2 instance 的 rule 新增完後的畫面
 
   <img src="figures/grafana/openbrowseragain.png" width=100%><br>
   - 開啟瀏覽器，輸入之前複製的 Public IPv4 address 並指定 port 為 9090
 
   <img src="figures/grafana/openbrowsergraph.png" width=100%><br>
-  - 網址自動跳轉為附加 /graph
+  - 網址會自動跳轉加上 /graph
 
   <img src="figures/grafana/premetheusgraph.png" width=100%><br>
-  - 開啟 premetheus 的畫面
+  - 開啟 Prometheus 的畫面
 
   <img src="figures/grafana/premetheusmetrics.png" width=100%><br>
   - 瀏覽器，輸入之前複製的 Public IPv4 address 並指定 port 為 9090，並附加 /metrics
 
   <img src="figures/grafana/premetheusdatasource.png" width=100%><br>
-  - 切換到 Premetheus 頁面的 Connections 下 Data resources，點選 Premetheus
+  - 切換到 Grafana 頁面的 Connections 下 Data sources，在 Time series databases 點選 Prometheus
 
   <img src="figures/grafana/premetheusdatasourcesetting.png" width=100%><br>
-  - 進入 Premetheus 的 setting 頁面
+  - 進入 Prometheus 的 setting 頁面
 
   <img src="figures/grafana/premetheusserverurl.png" width=100%><br>
   - Prometheus server URL：輸入之前複製的 Public IPv4 address 並指定 port 為 9090
 
   <img src="figures/grafana/premetheussavetest.png" width=73%><br>
-  - 在頁面底，點選 Save & test
+  - 在 Prometheus setting 頁面底，點選 Save & test
 
   <img src="figures/grafana/premetheushome.png" width=100%><br>
   - 在 Grafana 的 Home 頁面，點選 Create your first dashboard
@@ -1026,7 +1033,7 @@
   - 點選 Add visualization
 
   <img src="figures/grafana/premetheusselectdatasource.png" width=68%><br>
-  - 在 Select data source 頁中點選 Premetheus
+  - 在 Select data source 頁中點選 Prometheus
 
   <img src="figures/grafana/premetheusdashboardsquery.png" width=80%><br>
   - 在 Dashboards 裡，Metric 中點選 go_gc_duration_seconds_count 後點選 Run queries
