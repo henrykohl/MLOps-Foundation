@@ -191,7 +191,7 @@
 
   ![experiments](figures/06/mlflowexperiments2.png)
 
-## Day7 
+## Day7 -- Docker for MLOps
 
 * [Lecture 7 Video](https://www.youtube.com/watch?v=4HXhYvqOj2Y)
 
@@ -199,15 +199,25 @@
 
 * (26:29) [Docker Hub Explore](https://hub.docker.com/explore)
 
-* 執行 
+  <img src="figures/07/dockerhubhelloworld.png" width=100%><br>
+  - 在 DockerHub 搜尋 hello-world
+
+* 開啟 terminal，執行 
   ```bash
   docker pull hello-world
+  ```
+  <img src="figures/07/dockerdesktophelloworld.png" width=100%><br>
+  - hello-world image is pulled inside the Docker Destops (Windows) 
+
+* 執行
+  ```bash
   docker images
   docker run hello-world
   ```
 
-* Lecture Demo：在 Docker Desktop on Windows 中檢視結果
   ![Dockerer_desktop](figures/07/Dockerdesktop.png)
+  - 在 Docker Desktop (Windows) 的 Containers 中，有一個 container 已經開始在運行。
+  - container 名稱為 'happy_sammet' 是隨機產生的。(每次執行，名稱都可能會不一樣) 
 
 
 * 執行
