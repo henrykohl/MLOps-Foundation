@@ -653,42 +653,43 @@
   - 在 Domains 中點選 Create domain
 
   <img src="figures/sagemaker/aws/aws_domainsetup.png" width=100%><br>
-  - 建立 domain，按下 set up (若尚未建立 domain)
+  - 建立 domain，按下 Set up (若尚未建立 domain)
   - 回到上個畫面，點選已建立的 domain
 
   <img src="figures/sagemaker/aws/aws_domainuserprofile.png" width=100%><br>
-  - 切換到 user profile 頁面
+  - 切換到 User profiles 頁面
   - 如果尚未建立(或要建立多個) profile，點選 Add user
-  - 在 Launch 選單，點選 Studio
+  -按下 Launch，點選 Studio
 
   <img src="figures/sagemaker/aws/aws_segamakerstudio.png" width=100%><br>
-  - 點選 JupyterLab
+  - 在 Applications 欄中，點選 JupyterLab
 
   <img src="figures/sagemaker/aws/aws_jupyterlab.png" width=100%><br>
   - 點選 Create JupyterLab space
 
   <img src="figures/sagemaker/aws/aws_createdomainspace.png" width=42%><br>
   - Name：demo
-  - 按下 Create space
+  - 點選 Create space
 
   <img src="figures/sagemaker/aws/aws_runspace.png" width=100%><br>
   - 點選 Run space
 
   <img src="figures/sagemaker/aws/aws_openjupyterlab.png" width=100%><br>
-  - 點選 OpenJupyterLab -- launch the jupyter lab
+  - 點選 Open JupyterLab -- launch the jupyter lab
 
   <img src="figures/sagemaker/aws/aws_launcherpython3.png" width=95%><br>
   - 點選 Python 3
 
   <img src="figures/sagemaker/aws/aws_mlprojectipynb.png" width=90%><br>
-  - JupyterNotebook 頁面，將 ipynb 檔案改名為 'ml project'
-  - 將 'student_scores.csv' (見下一說明) 上傳 
+  - JupyterNotebook 頁面，將 ipynb 檔案名改為 'ml project'
+  - 將 'student_scores.csv' 上傳 (檔案來源，見下一說明) 
 
 
 * (5:54) kaggle -- [Kamlesh/student_scores](https://www.kaggle.com/datasets/kamleshsam/student-scores)
-  - 下載檔案 'student_scores.csv' （置放於`10.Segamaker`） 
+  - 下載檔案 'student_scores.csv' （置放於 `10.Segamaker` 資料夾） 
 
 * 完成 `10.Segamaker/ml project.ipynb` (實際執行必須在 AWS Sagemaker 環境下)
+  - Lecture demo 內容與說明，都紀錄與標註於此檔案中。
 
 ## Deploy Your Machine Learning Pipeline Using Docker & Kubernetes
 
@@ -701,23 +702,23 @@
 * (6:30) GCP 搜尋 'Container Registry'
 
   <img src="figures/kubernetes/gcp/gcp_search.png" width=100%><br>
-  - 搜尋頁面
+  - 在搜尋頁面輸入 "con..." 點選 'Container Registry'，
 
   <img src="figures/kubernetes/gcp/gcp_containerregistry.png" width=100%><br>
-  - Repositories 頁面
+  - 顯示 Repositories 頁面
 
 * (7:14) GCP 搜尋 'Kubernetes Engine'
 
   <img src="figures/kubernetes/gcp/gcp_searchkubernetes.png" width=100%><br>
-  - 搜尋頁面
+  - 在搜尋頁面輸入 "kubernet..." 點選 'Kubernetes Engine'，
 
   <img src="figures/kubernetes/gcp/gcp_kubernetesview.png" width=100%><br>
-  - Kubernetes 的 Clusters 頁面
+  - 顯示 Kubernetes Engine 的 Clusters 頁面
 
 * (7:50) GCP 首頁
 
   <img src="figures/kubernetes/gcp/gcp_activatecloudshell.png" width=100%><br>
-  - 點選 Activate Cloud Shell
+  - 點選 Activate Cloud Shell (G then S)
 
 * 之後接續要在 shell 上執行的命令 (9:40)
 
@@ -731,10 +732,10 @@
 
   <img src="figures/kubernetes/gcp/gcp_shellcommands1.png" width=100%><br>
   - 執行 `ls`
-  - 執行 `cd pycaret-deployment-google`
+  - 執行 `cd pycaret-deployment-google/`
   - 執行 `ls`
-  - 執行 `EXPORT PROJECT_ID=focal-baton-276315`
-  - 執行 `cat Dockerfile`
+  - 執行 `EXPORT PROJECT_ID=focal-baton-276315` (宣告並匯出變數 PROJECT_ID)
+  - 執行 `cat Dockerfile` （檢視 Dockerfile）
 
 * (10:09 補充) 找到 PROJECT_ID
 
@@ -742,21 +743,27 @@
   - step 1: 點選 My First Project
 
   <img src="figures/kubernetes/gcp/gcp_projectidstep2.png" width=100%><br>
-  - step 2: 在專案名稱找出對應的 ID
-
+  - step 2: 找到專案名稱，即可找出對應的 ID
 
 * (12:21) GCP shell
 
   <img src="figures/kubernetes/gcp/gcp_dockerbuild.png" width=100%><br>
   - 執行 `docker build -t gcr.io/${PROJECT_ID}/insurance-app:v1 .`
+    <pre>
+    ✦ docker build：這是 Docker 的核心指令，告訴電腦根據專案夾中的 Dockerfile 設定檔，自動建立一個映像檔。
+    ✦ -t (tag)：這個參數是用來給映像檔取名字和打標籤的。
+    ✦ gcr.io/focal-baton-276315/insurance-app:v1：這是完整的映像檔名稱。
+      ⟡ gcr.io：目標存放位置（Google 的容器註冊表）。
+      ⟡ focal-baton-276315：你在 Google Cloud 上的專案 ID。
+      ⟡ insurance-app：這個應用程式的名稱。
+      ⟡ :v1：版本號標籤，方便你區分不同時期的程式。
+      ⟡ . (最後那個點)：這非常重要，代表「在當前路徑」尋找 Dockerfile。
+    </pre>
   - (13:14) Lecture demo 出現錯誤，原因是 python 過舊，解決方式見後～
 
   <img src="figures/kubernetes/gcp/gcp_shellcommands2.png" width=100%><br>
   - 刪除原本 Dockerfile，再建立新的 Dockerfile
 
-
-
-  
 * (14:33) 建立新的 `Dockerfile`
   ```dockerfile
   FROM python:3.9
@@ -778,7 +785,7 @@
   # Run the application
   CMD ["gunicorn","app:app","--config=config.py"]
   ```
-* 再次執行 `docker build -t gcr.io/${PROJECT_ID}/insurance-app:v1 .`，但還會存在一個錯誤。
+* 再次執行 `docker build -t gcr.io/${PROJECT_ID}/insurance-app:v1 .`，但還會有一個錯誤。
   - 原因是 requirements.txt 中 pycaret 的版本已不被支援
 
 
@@ -800,24 +807,52 @@
   - 然後執行 `docker images`
 
   <img src="figures/kubernetes/gcp/gcp_gcloudauth.png" width=100%><br>
-  - 執行 `gloud auth configure-docker gcr.io`
+  - 執行 `gloud auth configure-docker gcr.io` (設定 Docker 使用 gcloud 作為憑證輔助工具)
+    <pre>
+    ✦ gcloud auth：使用 Google Cloud SDK 的身分驗證相關功能。
+    ✦ configure-docker：修改 Docker 的設定檔（通常是 ~/.docker/config.json），將 Google 的註冊表地址加入其中。
+    ✦ gcr.io：指定要授權的目標網域。gcr.io 是 Google Container Registry 的主要位址。
+    </pre>
+    - 之後執行 `docker push gcr.io/...` 或 `docker pull gcr.io/...` 時，Docker 會自動跟 gcloud 要權限，不會再跳出「Access Denied」或要求輸入密碼。
 
   <img src="figures/kubernetes/gcp/gcp_dockerpush.png" width=100%><br>
-  - 執行 `docker push gcr.io/${PROJECT_ID}/insurance-app:v1`
+  - 執行 `docker push gcr.io/${PROJECT_ID}/insurance-app:v1` (上傳程式)
+    - 將剛才在本地打包好的映像檔，正式上傳到 Google Cloud 的雲端倉庫（GCR）
+    <pre>
+    ✦ docker push：上傳指令，會將本地磁碟中的映像檔傳送到遠端伺服器。
+    ✦ gcr.io/focal-baton-276315/insurance-app:v1：這是包裹的「完整收件地址」。
+      ⟡ 上傳到 Google Container Registry (gcr.io)。
+      ⟡ 存放在專案 focal-baton-276315 之下。
+      ⟡ 這個檔案夾叫 insurance-app，版本標籤是 v1。
+    </pre>
 
 * (21:17) GCP 頁面
 
   <img src="figures/kubernetes/gcp/gcp_containerregistry1.png" width=100%><br>
-  - 在 Repositories 頁面，點選 docker image
+  - 在 Repositories 頁面，點選 gcr.io 資料夾
 
   <img src="figures/kubernetes/gcp/gcp_repositoryimage.png" width=100%><br>
-  - 檢視 image 頁面
+  - 在專案目錄中，點選 insurance-app
 
   <img src="figures/kubernetes/gcp/gcp_gcloudconfigset.png" width=100%><br>
-  - 執行 `gloud config set compute/zone us-central1`
+  - 執行 `gloud config set compute/zone us-central1` (將 Google Cloud CLI (gcloud) 的預設雲端運算區域（Zone）設定為 us-central1)
+  <pre>
+  ✦ gcloud config set：這是修改 gcloud 工具個人設定檔的指令。
+  ✦ compute/zone：這是一個特定的設定項，專指 Google Compute Engine (GCE) 資源所在的「具體機房位置」。
+  ✦ us-central1：這是目標區域的名稱。
+    ⟡ us-central 代表美國中部。
+    ⟡ 1 代表該區域內的特定區域（通常還有 us-central1-a, us-central1-b 等，如果只寫到 us-central1，有時是指整個 Region，但在設定 Zone 時通常會建議精確到具體的字母，例如 us-central1-a）。
+  </pre>
 
 * (21:58) 建立 container cluster (Lecture Demo略過，改示範用手動建立)
   - 執行 `gloud container clusters create insurance-cluster --num-nodes=1`
+  <pre>
+  ✦ gcloud container clusters create：這是 Google Kubernetes Engine (GKE) 的指令，用來初始化並建立一個新的 Kubernetes 叢集。
+  ✦ insurance-cluster：這是你給這個叢集取的自定義名稱。
+  ✦ --num-nodes=1：這是一個規格參數。
+    ⟡ Node (節點)：就是 Google 幫你開的虛擬機（VM），用來跑你的容器。
+    ⟡ =1：代表這個叢集只由 1 台虛擬機組成。
+  </pre>
 
 * (22:13) 建立 container cluster -- Kubernetes cluster (手動)
 
@@ -841,17 +876,31 @@
 
   <img src="figures/kubernetes/gcp/gcp_clusterdeployment.png" width=100%><br>
   - 執行 `kubectl create deployment insurance-app --image=gcr.io/${PROJECT_ID}/insurance-app:v1`
+    * 指令 Kubernetes (K8s) 在你剛建立的叢集中，根據雲端的映像檔跑起你的保險應用程式
+    <pre>
+    ✦ kubectl：這是控制 Kubernetes 叢集的標準工具（就像是遙控器）。
+    ✦ create deployment：建立一個「部署設定」。Deployment 是 K8s 的核心機制，它不只是執行程式，還會幫你監控，如果程式當掉了，它會自動重啟。
+    ✦ insurance-app：這是你在 K8s 內部給這個部署起的名字。
+    ✦ --image=gcr.io/${PROJECT_ID}/insurance-app:v1：告訴 K8s 要去哪裡抓程式碼。它會到你之前 docker push 上傳過的 Google 倉庫去下載 v1 版本的映像檔。
+    </pre>
 
 
 * Expose the application
   
   - 執行 `kubectl expose deployment insurance-app --type=LoaderBalancer --port 80 --target-port 8080` (Demo沒顯示)
+    - 為應用程式申請一個公網 IP 地址，並將外部流量導入容器中
+    <pre>
+    ✦ kubectl expose deployment insurance-app：告訴 Kubernetes 要將名為 insurance-app 的部署設定開放出來。
+    ✦ --type=LoadBalancer（註：你輸入的 LoaderBalancer 多了一個 'r'，正確應為 LoadBalancer）：這是最關鍵的參數。它會要求 Google Cloud 自動幫你建立一個負載平衡器（Load Balancer），並分配一個外部靜態 IP 給你。
+    ✦ --port 80：這是外部（對外）看到的通訊埠。一般網頁預設是 80，所以使用者只要輸入 IP 就能連線，不用特別加冒號。
+    ✦ --target-port 8080：內部（容器裡）程式實際監聽的通訊埠。代表 Docker 映像檔裡面的程式（例如 Spring Boot, Node.js）原本是跑在 8080 埠。
+    </pre>
   
   <img src="figures/kubernetes/gcp/gcp_afterexposedeployment.png" width=100%><br>
-  - after executing the command
+  - 執行 `kubectl get service`，找到 insurance-app 的 EXTERNAL-IP，將其複製起來。
 
   <img src="figures/kubernetes/projectwebsview.png" width=80%><br>
-  - 開啟 browser
+  - 開啟 browser，網址輸入剛複製的 EXTERNAL-IP
 
 * (27:21) Delete the cluster
 
@@ -865,10 +914,10 @@
   - 刪除過程還在進行中的畫面
   
   <img src="figures/kubernetes/gcp/gcp_dockerimagedelete.png" width=100%><br>
-  - 在 Repository 頁面中點選欲刪除的 docker image 後，點選 DELETE
+  - 在 Repository 頁面中點選欲刪除的 docker image 存放資料夾後，點選 DELETE
 
   <img src="figures/kubernetes/gcp/gcp_dockerimagedeleted.png" width=80%><br>
-  - 點選 DELETE 確認刪除 docker image
+  - 點選 DELETE 確認刪除 
 
 ## Monitor Everything with Grafana | Grafana Dashboard Step by Step 
 
