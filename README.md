@@ -4,6 +4,13 @@
 
 * Youtube playist：https://www.youtube.com/watch?v=eRyQDkCrZrk&list=PLkz_y24mlSJbtHxCveCT9NkgYdEhc42il
 
+* Github source：https://github.com/entbappy/MLOps-Foundation
+
+* Day 8(**End-to-End-Machine-Learning-Pipeline**) & Day 9(**Advance ML Pipeline**)
+  - Lecture Demo 的 Github source：[End-to-End-Machine-Learning-Pipeline](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline)
+    - 此 Github source 中 AWS-CICD-Deployment-with-Github-Actions 的部分，Lecture Demo 並沒有提到
+      - 這部分可以參考 My Github Source：[MLOPs-Production-Ready-Machine-Learning-Project](https://github.com/henrykohl/MLOPs-Production-Ready-Machine-Learning-Project) -- Day 7, Day 8, 與 Day 9
+
 
 ## Day1 -- Introduction
 
@@ -324,9 +331,9 @@
   </pre>
   
 ### End-to-End-Machine-Learning-Pipeline
-> * (1:00:50) [Github resource](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline/)
+> * (1:00:50) Github resource：[End-to-End-Machine-Learning-Pipeline](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline/)
 
-* 此講的實做都在目錄 **`/End-to-End-Machine-Learning-Pipeline`** 之下，以下此講筆記的路徑均以為此根目錄
+* 此專案實做都在目錄 **`/End-to-End-Machine-Learning-Pipeline`** 之下，以下此講筆記的路徑均以為此根目錄
 
 * 執行 `conda create -n mlproj python=3.8 -y` 和 `conda activate mlproj`
 
