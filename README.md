@@ -9,7 +9,7 @@
 * Day 8(**End-to-End-Machine-Learning-Pipeline**) & Day 9(**Advance ML Pipeline**)
   - Lecture Demo 的 Github source：[End-to-End-Machine-Learning-Pipeline](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline)
     - 此 Github source 中 AWS-CICD-Deployment-with-Github-Actions 的部分，Lecture Demo 並沒有提到
-      - 這部分可以參考 My Github Source：[MLOPs-Production-Ready-Machine-Learning-Project](https://github.com/henrykohl/MLOPs-Production-Ready-Machine-Learning-Project) -- Day 8 與 Day 9
+      - 這部分可以參考 [MLOPs-Production-Ready-Machine-Learning-Project](https://github.com/henrykohl/MLOPs-Production-Ready-Machine-Learning-Project) -- Day 8, 9, 10
         <pre>
         ✦ 登入 AWS：指定 Region，如 us-east-1
         ✦ 建立 s3 Bucket
