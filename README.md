@@ -9,7 +9,27 @@
 * Day 8(**End-to-End-Machine-Learning-Pipeline**) & Day 9(**Advance ML Pipeline**)
   - Lecture Demo 的 Github source：[End-to-End-Machine-Learning-Pipeline](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline)
     - 此 Github source 中 AWS-CICD-Deployment-with-Github-Actions 的部分，Lecture Demo 並沒有提到
-      - 這部分可以參考 My Github Source：[MLOPs-Production-Ready-Machine-Learning-Project](https://github.com/henrykohl/MLOPs-Production-Ready-Machine-Learning-Project) -- Day 7, Day 8, 與 Day 9
+      - 這部分可以參考 My Github Source：[MLOPs-Production-Ready-Machine-Learning-Project](https://github.com/henrykohl/MLOPs-Production-Ready-Machine-Learning-Project) -- Day 8 與 Day 9
+        <pre>
+        ✦ 登入 AWS：指定 Region，如 us-east-1
+        ✦ 建立 s3 Bucket
+        ✦ 建立 IAM 使用者
+          ⟡ 綁定 permissions policies
+          ⟡ 設定 security credentials:建立 Access key -- 保存 Access key 與 Secret access key
+        ✦ 建立 ECR 
+          ⟡ 保存 ERC 的 URI
+        ✦ 建立 EC2
+        ✦ 開啟 EC2 後 安裝 docker:
+        ✦ 在 Github 的 Actions/Runners 中設定 New self-hosted runner
+          ⟡ 把顯示的指令，也一一複製到 AWS EC2 執行
+        ✦ 設定 Github 敏感資訊 (Secrets) 
+          ⟡ AWS_ACCESS_KEY_ID
+          ⟡ AWS_SECRET_ACCESS_KEY
+          ⟡ AWS_DEFAULT_REGION
+          ⟡ ECR_REPO (之前保存 ERC 的 URI)
+          ⟡ MONGODB_URL (使用於 MongoDB)
+        ✦ 設定 AWS EC2 的安全群組 (Security group) -- 定義 inbound rule
+        </pre>
 
 
 ## Day1 -- Introduction
