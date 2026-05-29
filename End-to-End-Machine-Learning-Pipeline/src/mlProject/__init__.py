@@ -19,4 +19,7 @@ logging.basicConfig(
     ]
 )
 
-logger = logging.getLogger("mlProjectLogger")
+logger = logging.getLogger("mlProjectLogger") # 用來獲取或建立一個 Logger 物件，並指定這個記錄器的名字"mlProjectLogger"。
+# 定義模組層級的： 
+# Logger在各個子模組中，使用者可以透過 logging.getLogger(__name__) 取得日誌記錄器。
+#  __name__ 會根據套件結構自動產生（例如 package.module），從而建立清晰的日誌層級，方便日後過濾和調試。
