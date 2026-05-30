@@ -10,7 +10,8 @@ class PredictionPipeline:
         self.model = joblib.load(Path('artifacts/model_trainer/model.joblib'))
 
     
-    def predict(self, data):
-        prediction = self.model.predict(data)
+    def predict(self, data): # data 類型：numpy.ndarray，shpae 為 (1,11)
+        prediction = self.model.predict(data)  ## 輸出類型 numpy.ndarray，shpae 為 (1,)
+
 
         return prediction
