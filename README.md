@@ -94,10 +94,7 @@
   conda activate mlops
   ```
 
-* 建立
-  <pre>
-  requirements.txt
-  </pre>
+* 建立 `requirements.txt`
 
 * 執行 
   ```bash
@@ -124,10 +121,7 @@
   python pipeline/stage_03.py
   ```
 
-* 建立
-  <pre>
-  main.py
-  </pre>
+* 建立 `main.py`
 
 * 執行
   ```bash
@@ -136,17 +130,14 @@
 
 * Nothing has changed
 
-* 建立
-  <pre>
-  dvc.yaml
-  </pre>
+* 建立 `dvc.yaml`
 
-* 執行，之後 `.dvc` 資料夾與 `.dvcignore` 檔案 會被建立
+* 執行（之後 `.dvc` 資料夾與 `.dvcignore` 檔案 會被建立）
   ```bash
   dvc init
   ```
 
-* 執行，之後 `dvc.lock` 會被建立
+* 執行（之後 `dvc.lock` 會被建立）
   ```bash
   dvc repro
   ```
@@ -260,6 +251,8 @@
 
 * [Lecture 8 Video](https://www.youtube.com/watch?v=5LktCrQIcys)
 
+* 此 Lecture 包含兩部份 -- Docker-Demo 與 End-to-End-Machine-Learning-Pipeline
+
 ### Docker-Demo
 > * [Github resource -- Ultimate-MLOps-Full-Course](https://github.com/entbappy/Ultimate-MLOps-Full-Course) -- "Docker/Basic Calculator App"
 
@@ -366,6 +359,7 @@
 - 完成 `requirements.txt`
 
 - 完成 `setup.py` (注意，此完成後才可執行下一步安裝步驟，因為 'requirements.txt' 包含了 '-e .')
+  - 這是一個標準的 Python 專案安裝設定檔。它的核心目的是定義如何打包程式碼，並告訴 Python 哪些目錄應該被視為「套件 (packages)」。
 
 * 執行 `pip install -r requirements.txt` 
   > 完成後為自動建立目錄 `src/mlProject.egg-info`
@@ -373,6 +367,7 @@
 * (1:35:40) Git commit ('requirements added')
 
 - (1:39:30) 完成 `src/mlProject/__init__.py`
+  - 如果專案是個複雜的 Package，可以把所有的 logging 設定（如日誌格式 Formatter、輸出頻道 Handler、日誌等級 Level）寫在此檔案中。這樣只要其他模組導入了這個 Package，就會套用這些設定，避免重複配置。
 
 * (1:40:10) 編撰(暫時地) `main.py`
   ```python
@@ -383,11 +378,19 @@
 
 * (1:41:25) 執行 `python main.py` 後，除了在 terminal 顯示訊息，還會建立 `logs/running_logs.log`
 
-- 完成 `src/mlProject/utils/common.py`
+- 完成 `src/mlProject/utils/common.py` (主要有六個功能函數)
+  - read_yaml: 讀取 yaml 檔案
+  - create_directories: 建立(多)目錄
+  - save_json: JSON 物件存到檔案
+  - load_json: 讀取檔案為 JSON 物件
+  - save_bin:  物件存到檔案
+  - load_bin:  讀取檔案為物件
+  - get_size:  獲得物件大小（kb）
 
 * 建立且完成 `research/test.yaml`
 
 * 完成 `research/trials.ipynb`
+  - 練習 ConfigBox 與 ensure_annotations
 
 * **下一講章節，繼續未完成部分！**
 
@@ -422,17 +425,20 @@
 
 * 完成 `config/config.yaml` ('data_ingestion' 那部分)
   > - 取代 [原 source URL](https://github.com/entbappy/Branching-tutorial/raw/master/winequality-data.zip)
-  > - 換成 [新 source URL](https://github.com/henrykohl/MLOps-Foundation/raw/main/EtoEMLPipeline/winequality-data.zip) -- 自行把 data 存留一份 
+  > - 換成 [新 source URL](https://github.com/henrykohl/MLOps-Foundation/raw/main/End-to-End-Machine-Learning-Pipeline/winequality-data.zip) -- 自行把 data 存留一份 
 
 #### 2. Update `schema.yaml`
 
 * 完成 `schema.yaml`
+  - 用以讀取資料 winequality-data 後，資料(DataFrame)的各欄位名稱
 
 #### 3. Update `params.yaml`
 
 * 完成 `params.yaml`
+  - 定義將使用的模型 ElasticNet 的參數
 
 * 完成 `src/mlProject/constants/__init__.py`
+  - 定義三個 yaml 檔案路徑的變數："config/config.yaml"，"params.yaml"，"schema.yaml"
 
 * (53:19) 執行 `research/01_data_ingestion.ipynb` 完後，會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案
 
@@ -485,8 +491,9 @@
 
 * 不變
 
-* (1:09:39) 執行 `research/02_data_validation.ipynb` 完後，會建立 `artifacts/data_validation` 資料夾內包含 'status.txt'
-  > 若 `artifacts/data/winequality-red.csv` 中的資料有 column 缺失，'status.txt' 中會記錄 'False' 
+* (1:09:39) 執行 `research/02_data_validation.ipynb` 
+  > - 全部執行完後，會建立 `artifacts/data_validation` 資料夾內包含 'status.txt'
+  > - 若 `artifacts/data/winequality-red.csv` 中的資料有 column 缺失，'status.txt' 中會記錄 'False' 
 
 ####  4. Update the entity
 
@@ -509,8 +516,8 @@
 * (1:14:30) 完成 `main.py` (data_validation 那部分)
 
 * 執行 `python main.py` (執行前將 `artifacts` 資料夾刪除)完後，
-  > 會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案 \
-  > 會建立 `artifacts/data_validation` 資料夾內包含 'status.txt'
+  > - 會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案 \
+  > - 會建立 `artifacts/data_validation` 資料夾內包含 'status.txt'
 
 ---
 (1:18:35)
