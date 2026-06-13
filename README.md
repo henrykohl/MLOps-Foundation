@@ -453,6 +453,8 @@
 #### 6. update the components
 
 * (56:30) 建立完成 `src/mlProject/components/data_ingestion.py`
+  <pre>
+  ➤ 輸入 DataIngestionConfig 類實例</pre>
 
 #### 7. updated the pipeline
 
