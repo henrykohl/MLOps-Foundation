@@ -528,16 +528,22 @@
 * (1:12:22) 完成 `src/mlProject/config/configuration.py` (data_validation 那部分)
   <pre>
   ➤ 建立目錄 `artifacts`
-  ■  -- 1.</pre>
-  1. 建立 DataIngestionConfig 類實例，並回傳此類實例
-    - 輸入 data_ingestion 的根目錄
-    - 輸入 資料來源 URL
-    - 輸入 本地端資料存檔路徑
-    - 輸入 資料檔案解壓路徑
+  ■ get_data_validation_config() -- 1.</pre>
+  1. 建立 DataValidationConfig 類實例，並回傳此類實例
+    - 輸入 data_validation 的根目錄
+    - 輸入 狀態檔案路徑
+    - 輸入 解壓資料檔案路徑
+    - 輸入 全綱要 -- ConfigBox 類
 
 #### 6. update the components
 
 * (1:12:59) 建立完成 `src/mlProject/components/data_validation.py`
+  <pre>
+  ➤ 輸入 DataIngestionConfig 類實例
+  ■ validate_all_columns() -- 1.</pre>
+  1. 從解壓資料檔案路徑讀取為 dataframe 數據
+  2. 獲得 dataframe 數據的 column 名稱列表
+  3. 
 
 #### 7. updated the pipeline
 
