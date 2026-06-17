@@ -1,5 +1,7 @@
 # MLOps-Foundation
 
+## ✪ Description
+
 * 日期標題後'()' 中為Lecture 實作時的目錄路徑，因此要實作時須先切換到實作目標目錄的路徑。
 
 * Youtube playist：https://www.youtube.com/watch?v=eRyQDkCrZrk&list=PLkz_y24mlSJbtHxCveCT9NkgYdEhc42il
@@ -10,29 +12,32 @@
   - Lecture Demo 的 Github source：[End-to-End-Machine-Learning-Pipeline](https://github.com/entbappy/End-to-End-Machine-Learning-Pipeline)
     - 此 Github source 中 AWS-CICD-Deployment-with-Github-Actions 的部分，Lecture Demo 並沒有提到
       - 這部分可以參考 [MLOPs-Production-Ready-Machine-Learning-Project](https://github.com/henrykohl/MLOPs-Production-Ready-Machine-Learning-Project) -- Day 8, 9, 10
-        <pre>
-        ✦ 登入 AWS：指定 Region，如 us-east-1
-        ✦ 建立 s3 Bucket
-        ✦ 建立 IAM 使用者
-          ⟡ 綁定 permissions policies
-          ⟡ 設定 security credentials:建立 Access key -- 保存 Access key 與 Secret access key
-        ✦ 建立 ECR 
-          ⟡ 保存 ERC 的 URI
-        ✦ 建立 EC2
-        ✦ 開啟 EC2 後 安裝 docker:
-        ✦ 在 Github 的 Actions/Runners 中設定 New self-hosted runner
-          ⟡ 把顯示的指令，也一一複製到 AWS EC2 執行
-        ✦ 設定 Github 敏感資訊 (Secrets) 
-          ⟡ AWS_ACCESS_KEY_ID
-          ⟡ AWS_SECRET_ACCESS_KEY
-          ⟡ AWS_DEFAULT_REGION
-          ⟡ ECR_REPO (之前保存 ERC 的 URI)
-          ⟡ MONGODB_URL (使用於 MongoDB)
-        ✦ 設定 AWS EC2 的安全群組 (Security group) -- 定義 inbound rule
-        </pre>
+      - 要完成 AWS-CICD 還需要完成兩部份：
+        1. AWS 設定:
+          <pre>
+          ✦ 登入 AWS：指定 Region，如 us-east-1
+          ✦ 建立 s3 Bucket
+          ✦ 建立 IAM 使用者
+            ⟡ 綁定 permissions policies
+            ⟡ 設定 security credentials:建立 Access key -- 保存 Access key 與 Secret access key
+          ✦ 建立 ECR 
+            ⟡ 保存 ERC 的 URI
+          ✦ 建立 EC2
+          ✦ 開啟 EC2 後 安裝 docker:
+          ✦ 在 Github 的 Actions/Runners 中設定 New self-hosted runner
+            ⟡ 把顯示的指令，也一一複製到 AWS EC2 執行
+          ✦ 設定 Github 敏感資訊 (Secrets) 
+            ⟡ AWS_ACCESS_KEY_ID
+            ⟡ AWS_SECRET_ACCESS_KEY
+            ⟡ AWS_DEFAULT_REGION
+            ⟡ ECR_REPO (之前保存 ERC 的 URI)
+            ⟡ MONGODB_URL (使用於 MongoDB)
+          ✦ 設定 AWS EC2 的安全群組 (Security group) -- 定義 inbound rule</pre>
+        2. 新增 `End-to-End-Machine-Learning-Pipeline/src/mlProject/components/model_pusher.py`
+          
 
 
-## Day1 -- Introduction
+## ✪ Day1 -- Introduction
 
 * [Lecture 1 Video](https://www.youtube.com/watch?v=eRyQDkCrZrk)
 
@@ -45,7 +50,7 @@
   6. Monitoring -- Grafana
   7. Retraining -- Airflow
 
-## Day2 (01.Linux cmd)
+## ✪ Day2 (01.Linux cmd)
 
 * [Lecture 2 Video](https://www.youtube.com/watch?v=dfnVzbW423E)
 
@@ -63,7 +68,7 @@
   sudo apt-get update -y
   ```
 
-## Day3 (02.Git-Github)
+## ✪ Day3 (02.Git-Github)
 
 * [Lecture 3 Video](https://www.youtube.com/watch?v=ipVlWGPOijI)
 
@@ -74,7 +79,7 @@
   Is used as a command line tool & run locally | Owned by Microsoft. It's running on remote
   </pre>
 
-## Day4 (03.DVC-demo)
+## ✪ Day4 (03.DVC-demo)
 
 * [Lecture 4 Video](https://www.youtube.com/watch?v=pI6r5N7q828)
 
@@ -156,7 +161,7 @@
   dvc dag
   ```
 
-## Day5 -- Cloud Platforms
+## ✪ Day5 -- Cloud Platforms
 
 * [Lecture 5 Video](https://www.youtube.com/watch?v=v8RtyRIQoNU)
 
@@ -165,7 +170,7 @@
 
 * GCP Buckets ~ AWS S3 Bucket
 
-## Day6 (04.MLflow)
+## ✪ Day6 (04.MLflow)
 
 * [Lecture 6 Video](https://www.youtube.com/watch?v=Y_BlkXUfkzY)
 
@@ -209,7 +214,7 @@
 
   ![experiments](figures/06/mlflowexperiments2.png)
 
-## Day7 -- Docker for MLOps
+## ✪ Day7 -- Docker for MLOps
 
 * [Lecture 7 Video](https://www.youtube.com/watch?v=4HXhYvqOj2Y)
 
@@ -247,7 +252,7 @@
   docker images
   ```
 
-## Containerization - Creating, Tagging, and Managing Custom Docker Images 
+## ✪ Containerization - Creating, Tagging, and Managing Custom Docker Images 
 
 * [Lecture 8 Video](https://www.youtube.com/watch?v=5LktCrQIcys)
 
@@ -394,7 +399,7 @@
 
 * **下一講章節，繼續未完成部分！**
 
-## Advance ML Pipeline 
+## ✪ Advance ML Pipeline 
 
 * [Lecture 9 Video](https://www.youtube.com/watch?v=TZrJNkZCxaU)
 
@@ -449,16 +454,33 @@
 #### 5. Update the configuration manager in src config
 
 * (55:38) 完成 `src/mlProject/config/configuration.py` (data_ingestion 那部分)
+  <pre>
+  ➤ 建立目錄 `artifacts`
+  ■ get_data_ingestion_config() -- 1.</pre>
+  1. 建立 DataIngestionConfig 類實例，並回傳此類實例
+    - 輸入 data_ingestion 的根目錄
+    - 輸入 資料來源 URL
+    - 輸入 本地端資料存檔路徑
+    - 輸入 資料檔案解壓路徑
 
 #### 6. update the components
 
 * (56:30) 建立完成 `src/mlProject/components/data_ingestion.py`
   <pre>
-  ➤ 輸入 DataIngestionConfig 類實例</pre>
+  ➤ 輸入 DataIngestionConfig 類實例
+  ■ download_file() -- 1.
+  ■ extract_zip_file() -- 2.</pre>
+  1. 下載 資料 zip 檔案
+  2. 解壓 資料 zip 檔案
 
 #### 7. updated the pipeline
 
 * (57:50) 建立完成 `src/mlProject/pipeline/stage_01_data_ingestion.py`
+  1. 獲得 ConfigurationManager 類實例
+  2. 獲得 DataIngestionConfig 類實例
+  3. 獲得 DataIngestion 類實例
+  4. 下載 資料 zip 檔案
+  5. 解壓 資料 zip 檔案 
 
 #### 8. Update the `main.py`
 
@@ -504,6 +526,14 @@
 #### 5. Update the configuration manager in src config
 
 * (1:12:22) 完成 `src/mlProject/config/configuration.py` (data_validation 那部分)
+  <pre>
+  ➤ 建立目錄 `artifacts`
+  ■  -- 1.</pre>
+  1. 建立 DataIngestionConfig 類實例，並回傳此類實例
+    - 輸入 data_ingestion 的根目錄
+    - 輸入 資料來源 URL
+    - 輸入 本地端資料存檔路徑
+    - 輸入 資料檔案解壓路徑
 
 #### 6. update the components
 
@@ -686,7 +716,7 @@
 
 * (1:52:10) Git commit ('completed till app')
 
-## End-to-End Machine Learning Project Using AWS SageMaker
+## ✪ End-to-End Machine Learning Project Using AWS SageMaker
 
 * [Lecture 10 Video](https://www.youtube.com/watch?v=7dksopxbcqM)
 
@@ -737,7 +767,7 @@
 * 完成 `10.Segamaker/ml project.ipynb` (實際執行必須在 AWS Sagemaker 環境下)
   - Lecture demo 內容與說明，都紀錄與標註於此檔案中。
 
-## Deploy Your Machine Learning Pipeline Using Docker & Kubernetes
+## ✪ Deploy Your Machine Learning Pipeline Using Docker & Kubernetes
 
 * [Lecture 11 Video](https://www.youtube.com/watch?v=67BT4lRyeXI)
 
@@ -965,7 +995,7 @@
   <img src="figures/kubernetes/gcp/gcp_dockerimagedeleted.png" width=80%><br>
   - 點選 DELETE 確認刪除 
 
-## Monitor Everything with Grafana | Grafana Dashboard Step by Step 
+## ✪ Monitor Everything with Grafana | Grafana Dashboard Step by Step 
 
 * [Lecture 12 Video](www.youtube.com/watch?v=fX8dIy6zGH8)
 
