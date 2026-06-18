@@ -456,8 +456,9 @@
 * (55:38) 完成 `src/mlProject/config/configuration.py` (data_ingestion 那部分)
   <pre>
   ➤ 建立目錄 `artifacts`
-  ■ get_data_ingestion_config() -- 1.</pre>
-  1. 建立 DataIngestionConfig 類實例，並回傳此類實例
+  ■ get_data_ingestion_config() -- 1.2.</pre>
+  1. 建立 data_ingestion 目錄於根目錄之下
+  2. 建立 DataIngestionConfig 類實例，並回傳此類實例
     - 輸入 data_ingestion 的根目錄
     - 輸入 資料來源 URL
     - 輸入 本地端資料存檔路徑
@@ -527,9 +528,10 @@
 
 * (1:12:22) 完成 `src/mlProject/config/configuration.py` (data_validation 那部分)
   <pre>
-  ➤ 建立目錄 `artifacts`
-  ■ get_data_validation_config() -- 1.</pre>
-  1. 建立 DataValidationConfig 類實例，並回傳此類實例
+  ➤ 建立根目錄 `artifacts`
+  ■ get_data_validation_config() -- 1.2.</pre>
+  1. 建立 data_validation 目錄於根目錄之下
+  2. 建立 DataValidationConfig 類實例，並回傳此類實例
     - 輸入 data_validation 的根目錄
     - 輸入 狀態檔案路徑
     - 輸入 解壓資料檔案路徑
@@ -539,15 +541,22 @@
 
 * (1:12:59) 建立完成 `src/mlProject/components/data_validation.py`
   <pre>
-  ➤ 輸入 DataIngestionConfig 類實例
-  ■ validate_all_columns() -- 1.</pre>
+  ➤ 輸入 DataValidationConfig 類實例
+  ■ validate_all_columns() -- 1. ~ 4.</pre>
   1. 從解壓資料檔案路徑讀取為 dataframe 數據
   2. 獲得 dataframe 數據的 column 名稱列表
-  3. 
+  3. 獲得 全綱要的 key 名稱列表
+  4. 建立 驗證狀態布林值，並回傳且存入檔案中
+    - column 名稱列表 與 key 名稱列表，全部相符為真，否則為否
+
 
 #### 7. updated the pipeline
 
 * (1:14:05) 建立完成 `src/mlProject/pipeline/stage_02_data_validation.py`
+  1. 獲得 ConfigurationManager 類實例
+  2. 獲得 DataValidationConfig 類實例
+  3. 獲得 DataValidation 類實例
+  4. 建立 驗證狀態布林值，並存入檔案中
 
 #### 8. Update the `main.py`
 
@@ -585,10 +594,22 @@
 #### 5. Update the configuration manager in src config
 
 * (1:22:33) 完成 `src/mlProject/config/configuration.py` (data_transformation 那部分)
+  <pre>
+  ➤ 建立目錄 `artifacts`
+  ■ get_data_transformation_config() -- 1.2.</pre>
+  1. 建立 data_transformation 目錄於根目錄之下
+  2. 建立 DataTransformationConfig 類實例，並回傳此類實例
+    - 輸入 data_transformation 的根目錄
+    - 輸入 本地端資料存檔路徑
 
 #### 6. update the components
 
 * (1:23:07) 建立完成 `src/mlProject/components/data_transformation.py`
+  <pre>
+  ➤ 輸入 DataTransformationConfig 類實例
+  ■ train_test_spliting() -- </pre>
+  1. 從解壓資料檔案路徑讀取為 dataframe 數據
+  
 
 #### 7. updated the pipeline
 
