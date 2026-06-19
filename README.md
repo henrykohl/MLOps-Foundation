@@ -607,13 +607,20 @@
 * (1:23:07) 建立完成 `src/mlProject/components/data_transformation.py`
   <pre>
   ➤ 輸入 DataTransformationConfig 類實例
-  ■ train_test_spliting() -- </pre>
+  ■ train_test_spliting() -- 1. ~ 4.</pre>
   1. 從解壓資料檔案路徑讀取為 dataframe 數據
+  2. 將 dataframe 數據分割為 訓練資料 與 測試資料
+  3. 將 訓練資料存成 csv 檔
+  4. 將 測試資料存成 csv 檔
   
 
 #### 7. updated the pipeline
 
 * (1:23:58) 建立完成 `src/mlProject/pipeline/stage_03_data_transformation.py`
+  1. 獲得 ConfigurationManager 類實例
+  2. 獲得 DataTransformationConfig 類實例
+  3. 獲得 DataTransformation 類實例
+  4. 讀取資料檔案，將其分割後，分別存成 csv 檔
 
 #### 8. Update the `main.py`
 
@@ -651,6 +658,18 @@
 #### 5. Update the configuration manager in src config
 
 * (1:35:15) 完成 `src/mlProject/config/configuration.py` (model_trainer 那部分)
+  <pre>
+  ➤ 建立目錄 `artifacts`
+  ■ get_model_trainer_config() -- </pre>
+  1. 建立 model_trainer 目錄於根目錄之下
+  2. 建立 ModelTrainerConfig 類實例，並回傳此類實例
+    - 輸入 model_trainer 目錄路徑
+    - 輸入 訓練資料 csv 檔路徑
+    - 輸入 測試資料 csv 檔路徑
+    - 輸入 模型檔案名稱含副檔名
+    - 輸入 參數 alpha
+    - 輸入 參數 l1_ratio 
+    - 輸入 target 欄位名
 
 #### 6. update the components
 
