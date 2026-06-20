@@ -660,7 +660,7 @@
 * (1:35:15) 完成 `src/mlProject/config/configuration.py` (model_trainer 那部分)
   <pre>
   ➤ 建立目錄 `artifacts`
-  ■ get_model_trainer_config() -- </pre>
+  ■ get_model_trainer_config() -- 1.2.</pre>
   1. 建立 model_trainer 目錄於根目錄之下
   2. 建立 ModelTrainerConfig 類實例，並回傳此類實例
     - 輸入 model_trainer 目錄路徑
@@ -674,10 +674,26 @@
 #### 6. update the components
 
 * (1:35:45) 建立完成 `src/mlProject/components/model_trainer.py`
+  <pre>
+  ➤ 輸入 ModelTrainerConfig 類實例
+  ■ train() -- 1. ~ 8.</pre>
+  1. 從 data_transformation根目錄中的 訓練資料 csv 檔讀取為 dataframe 數據
+  2. 從 data_transformation根目錄中的 測試資料 csv 檔讀取為 dataframe 數據
+  3. 將 訓練資料 dataframe 的 quality 欄捨棄以建立 訓練 feature dataframe
+  4. 將 測試資料 dataframe 的 quality 欄捨棄以建立 測試 feature dataframe  
+  5. 將 訓練資料 dataframe 的 quality 欄擷取以建立 訓練 target series
+  6. 將 測試資料 dataframe 的 quality 欄擷取以建立 側試 target series
+  7. 建立 ElasticNet 模型
+  8. 輸入 訓練 feature dataframe 與 訓練 target series，執行 ElasticNet 模型訓練
+
 
 #### 7. updated the pipeline
 
 * (1:36:25) 建立完成 `src/mlProject/pipeline/stage_04_model_trainer.py`
+  1. 獲得 ConfigurationManager 類實例
+  2. 獲得 ModelTrainerConfig 類實例
+  3. 獲得 ModelTrainer 類實例
+  4. 讀取資料 csv 檔，分離 feature 與 target，以 ElasticNet 模型進行訓練
 
 #### 8. Update the `main.py`
 
@@ -716,10 +732,26 @@
 #### 5. Update the configuration manager in src config
 
 * (1:40:00) 完成 `src/mlProject/config/configuration.py` (model_evaluation 那部分)
+  <pre>
+  ➤ 建立目錄 `artifacts`
+  ■ get_model_evaluation_config() -- </pre>
+  1. 建立 model_evaluation 目錄於根目錄之下
+  2. 建立 ModelEvaluationConfig 類實例，並回傳此類實例
+    - 輸入 model_trainer 目錄路徑
+    - 輸入 測試資料 csv 檔路徑
+    - 輸入 模型檔案名稱含副檔名 
+    - 輸入 ConfigBox 類型的 ElasticNet 模型參數
+    - 輸入 metrics.json 檔案路徑
+    - 輸入 綱要 target column 名稱
 
 #### 6. update the components
 
 * (1:40:30) 建立完成 `src/mlProject/components/model_evaluation.py`
+  <pre>
+  ➤ 輸入 ModelEvaluationConfig 類實例
+  ■ eval_metrics() -- 
+  ■ save_results() --</pre>
+  1. 
 
 #### 7. updated the pipeline
 
