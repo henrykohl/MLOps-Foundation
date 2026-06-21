@@ -766,6 +766,11 @@
 #### 7. updated the pipeline
 
 * (1:41:36) 建立完成 `src/mlProject/pipeline/stage_05_model_evaluation.py`
+  1. 獲得 ConfigurationManager 類實例
+  2. 獲得 ModelEvaluationConfig 類實例
+  3. 獲得 ModelEvaluation 類實例
+  4. 讀取資料 csv 檔，載入 模型 對資料進行 predict，獲得預測值
+  6. 計算 預測值 與 真實值 的 方均根、平均絕對誤差、R2 score，再將他們儲存
 
 #### 8. Update the `main.py`
 
