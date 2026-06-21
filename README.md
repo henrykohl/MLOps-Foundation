@@ -749,9 +749,19 @@
 * (1:40:30) 建立完成 `src/mlProject/components/model_evaluation.py`
   <pre>
   ➤ 輸入 ModelEvaluationConfig 類實例
-  ■ eval_metrics() -- 
-  ■ save_results() --</pre>
-  1. 
+  ■ eval_metrics() -- 6.7.8
+  ■ save_results() -- 1. ~ 5.9.10.</pre>
+  1. 從 測試資料 csv 檔案讀取為 測試 dataframe 數據
+  2. 從 model.joblib 檔案讀取為 模型
+  3. 將 測試資料 dataframe 的 quality 欄捨棄以建立 測試 feature dataframe
+  4. 將 測試資料 dataframe 的 quality 欄擷取以建立 測試 target dataframe
+  5. 用 模型 對 測試 feature dataframe 執行 predict()，獲得 預測 ndarray
+  6. 輸入 target dataframe 與 預測 ndarray，計算 方均根
+  7. 輸入 target dataframe 與 預測 ndarray，計算 平均絕對誤差
+  8. 輸入 target dataframe 與 預測 ndarray，計算 R2 score
+  9. 建立 dict 物件
+    - 輸入 方均根，平均絕對誤差，R2 score
+  10. 將 dict 物件 存到 metrics.json 檔案中
 
 #### 7. updated the pipeline
 
