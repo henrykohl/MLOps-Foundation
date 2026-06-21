@@ -734,7 +734,7 @@
 * (1:40:00) 完成 `src/mlProject/config/configuration.py` (model_evaluation 那部分)
   <pre>
   ➤ 建立目錄 `artifacts`
-  ■ get_model_evaluation_config() -- </pre>
+  ■ get_model_evaluation_config() -- 1.2.</pre>
   1. 建立 model_evaluation 目錄於根目錄之下
   2. 建立 ModelEvaluationConfig 類實例，並回傳此類實例
     - 輸入 model_trainer 目錄路徑
@@ -786,6 +786,11 @@
 ### Prediction
 
 * (1:44:45) 建立完成 `src/mlProject/pipeline/prediction.py`
+  <pre>
+  ➤ 載入模型
+  ■ predict()</pre>
+  1. 輸入 資料 ndarray 給 模型進行預測
+    - 輸出 預測數值 ndarray
 
 ### User Interface
 
