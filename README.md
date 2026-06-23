@@ -445,7 +445,8 @@
 * 完成 `src/mlProject/constants/__init__.py`
   - 定義三個 yaml 檔案路徑的變數："config/config.yaml"，"params.yaml"，"schema.yaml"
 
-* (53:19) 執行 `research/01_data_ingestion.ipynb` 完後，會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案
+* (53:19) 執行 `research/01_data_ingestion.ipynb` 
+  > - 全部執行完後，會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案
 
 #### 4. Update the entity
 
@@ -488,7 +489,7 @@
 * (1:00:00) 完成 `main.py` (data_ingestion 那部分)
 
 * 執行 `python main.py` (執行前將 `artifacts` 資料夾刪除)完後，
-  > 會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案
+  > - 會建立 `artifacts/data_ingestion` 資料夾內包含 'data.zip' 與 'winequality-red.csv' 兩個檔案
 
 * 在 `.gitignore` 中加入 (此檔案要新建，而 repository 根目錄有另一個 '.gitignore' )
   ```.gitignore
@@ -676,7 +677,7 @@
 * (1:35:45) 建立完成 `src/mlProject/components/model_trainer.py`
   <pre>
   ➤ 輸入 ModelTrainerConfig 類實例
-  ■ train() -- 1. ~ 8.</pre>
+  ■ train() -- 1. ~ 9.</pre>
   1. 從 data_transformation根目錄中的 訓練資料 csv 檔讀取為 dataframe 數據
   2. 從 data_transformation根目錄中的 測試資料 csv 檔讀取為 dataframe 數據
   3. 將 訓練資料 dataframe 的 quality 欄捨棄以建立 訓練 feature dataframe
@@ -685,7 +686,7 @@
   6. 將 測試資料 dataframe 的 quality 欄擷取以建立 側試 target series
   7. 建立 ElasticNet 模型
   8. 輸入 訓練 feature dataframe 與 訓練 target series，執行 ElasticNet 模型訓練
-
+  9. 將 ElasticNet 模型 存到指定路徑的 model.joblib 檔案中
 
 #### 7. updated the pipeline
 
